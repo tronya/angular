@@ -3,7 +3,7 @@ export class GalleryItemModel {
   public createdAt: Date;
   public id: string;
 
-  constructor(imagePath: string, private title?: string, private description?: string) {
+  constructor(imagePath: string, public title?: string, public description?: string) {
     this.imageUrl = imagePath;
     this.createdAt = new Date();
   }
