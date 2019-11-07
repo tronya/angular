@@ -1,0 +1,38 @@
+<div class="row">
+  <form [formGroup]="galleryAddForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="imagePath">Enter your image link </label>
+      <input
+        type="text"
+        id="imagePath"
+        formControlName="imagePath"
+        class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Title"
+        formControlName="title"
+      >
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text"
+             class="form-control"
+             id="description"
+             placeholder="Description"
+             formControlName="description"
+      >
+    </div>
+
+    <button type="submit"
+            class="btn btn-success"
+            [disabled]="!galleryAddForm.valid">Send
+    </button>
+
+  </form>
+</div>

@@ -1,2 +1,2 @@
 # angular
-Thats is my pet project
+That's is my pet project
