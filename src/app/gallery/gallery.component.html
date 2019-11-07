@@ -1,9 +1,4 @@
 <div class="container">
-
-  <div *ngFor="let palette of colorPalette">
-    <p [ngStyle]="{'color': palette.color}">{{palette|json}}</p>
-  </div>
-
   <div class="row">
     <div class="col-md-12">
       <h3>This is simple gallery</h3>
@@ -26,7 +21,7 @@
 
           <div class="row">
             <app-gallery-item
-              class="col-xs-12 col-md-4"
+              class="col-xs-12 col-md-6"
               *ngFor="let item of imageItems"
               [galleryItem]="item"
             ></app-gallery-item>

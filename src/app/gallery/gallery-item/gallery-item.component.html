@@ -1,10 +1,11 @@
- <div class="card card-blog fill-light">
-    <div class="card-image">
-      <img class="img" src={{galleryItem.imageUrl}}/>
-    </div>
-    <div class="content">
-      <p>{{galleryItem.createdAt}}</p>
-      <p class="category text-primary">{{galleryItem.title}}</p>
-      <p class="card-description text-dark-secondary">{{galleryItem.description}}</p>
-    </div>
+<div class="card card-blog fill-light" [ngStyle]="{'background-color': colorPalette[0] | colorToHEX}">
+  <div class="card-image">
+    <img class="img" src={{galleryItem.imageUrl}}/>
   </div>
+  <div class="content">
+    <p>{{galleryItem.createdAt|date}}</p>
+    <p class="category text-primary" [ngStyle]="{'color': colorPalette[1] | colorToHEX}">{{galleryItem.title}}</p>
+    <p class="card-description text-dark-secondary" [ngStyle]="{'color': colorPalette[2] | colorToHEX}">
+      {{galleryItem.description}}</p>
+  </div>
+</div>

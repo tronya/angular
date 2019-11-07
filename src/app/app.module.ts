@@ -21,9 +21,11 @@ import {AuthComponent} from './auth/auth.component';
 import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import {RecipesModule} from './recipes/recipes.module';
-import { GalleryComponent } from './gallery/gallery.component';
+import {GalleryComponent} from './gallery/gallery.component';
 import {GalleryAddComponent} from './gallery/gallery-add/gallery-add.component';
 import {GalleryItemComponent} from './gallery/gallery-item/gallery-item.component';
+import {ColorToHexPipe} from './shared/colorToHex.pipe';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {GalleryItemComponent} from './gallery/gallery-item/gallery-item.componen
     LoadingSpinnerComponent,
     GalleryAddComponent,
     GalleryComponent,
-    GalleryItemComponent
+    GalleryItemComponent,
+    ColorToHexPipe,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

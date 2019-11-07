@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {GalleryItemModel} from './gallery-item.model';
+import ColorThief from 'src/vibrant';
 
 
 @Component({
@@ -7,7 +8,26 @@ import {GalleryItemModel} from './gallery-item.model';
   templateUrl: 'gallery-item.component.html',
   styleUrls: ['gallery-item.component.css']
 })
-export class GalleryItemComponent {
+export class GalleryItemComponent implements OnInit {
   @Input() galleryItem: GalleryItemModel;
+  colorPalette: [number, number, number] = [null, null, null];
+
+  ngOnInit() {
+    this.getImageColors(this.galleryItem.imageUrl, 3);
+  }
+
+  getImageColors(src: string, count: number = 5) {
+
+    const colorThief = new ColorThief();
+    const img = new Image();
+    const googleProxyURL = 'https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=';
+
+    img.crossOrigin = 'Anonymous';
+    img.src = googleProxyURL + encodeURIComponent(src);
+
+    img.addEventListener('load', () => {
+      this.colorPalette = colorThief.getPalette(img, count);
+    });
+  }
 
 }
