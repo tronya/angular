@@ -38,6 +38,8 @@ MIT
 @angular/router
 MIT
 
+angular-app
+
 bootstrap
 MIT
 The MIT License (MIT)
