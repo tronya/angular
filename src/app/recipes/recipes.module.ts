@@ -6,7 +6,6 @@ import {RecipeItemComponent} from './recipe-list/recipe-item/recipe-item.compone
 import {RecipeStartComponent} from './recipe-start/recipe-start.component';
 import {RecipeEditComponent} from './recipe-edit/recipe-edit.component';
 import {CommonModule} from '@angular/common';
-import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {RecipesRouterModule} from './recipes-router.module';
@@ -32,7 +31,6 @@ import {RecipesRouterModule} from './recipes-router.module';
     RouterModule,
     RecipesRouterModule,
     CommonModule,
-    BrowserModule,
     ReactiveFormsModule
   ]
 })

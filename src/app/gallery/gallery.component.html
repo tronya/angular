@@ -1,31 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3>This is simple gallery</h3>
-      <div class="row">
-        <app-gallery-add></app-gallery-add>
+<div class="container-fluid" >
+  <div class="gallery">
+    <h3>This is simple gallery 2</h3>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off" (click)="sortByDateHandle()"> Sort by
+            date
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Sort by name
+          </label>
+        </div>
 
-        <div class="gallery">
+        <h2>Gallery</h2>
 
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off" (click)="sortByDateHandle()"> Sort by
-              date
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option3" autocomplete="off"> Sort by name
-            </label>
+        <div class="row">
+          <div class="col-xs-12">
+            <app-gallery-add></app-gallery-add>
           </div>
-
-          <h2>Gallery</h2>
-
-          <div class="row">
-            <app-gallery-item
-              class="col-xs-12"
-              *ngFor="let item of imageItems"
-              [galleryItem]="item"
-            ></app-gallery-item>
-          </div>
+          <app-gallery-item
+            class="col-xs-12"
+            *ngFor="let item of imageItems"
+            [galleryItem]="item"
+          ></app-gallery-item>
         </div>
       </div>
     </div>

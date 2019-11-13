@@ -7,10 +7,9 @@ import {GalleryComponent} from './gallery/gallery.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/it-works', pathMatch: 'full'},
-  {path: 'gallery', pathMatch: 'full', component: GalleryComponent},
+  {path: '', redirectTo: '/gallery', pathMatch: 'full'},
+  {path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'},
   {path: 'shopping-list', component: ShoppingListComponent},
-  {path: 'auth', component: AuthComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
 

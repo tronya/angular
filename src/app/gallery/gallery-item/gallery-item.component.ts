@@ -10,7 +10,7 @@ import ColorThief from 'src/vibrant';
 })
 export class GalleryItemComponent implements OnInit {
   @Input() galleryItem: GalleryItemModel;
-  colorPalette: [number, number, number] = [null, null, null];
+  colorPalette = [];
 
   ngOnInit() {
     this.getImageColors(this.galleryItem.imageUrl, 3);
