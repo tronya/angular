@@ -2,9 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 import AuthErrorsHandler from './auth-error.handler';
-import {BehaviorSubject, Subject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {UserModel} from './user.model';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 export interface AuthResponseData {
   kind: string;
@@ -26,7 +27,7 @@ export class AuthService {
 
   signIn(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCnOmRBDc8tqGm0QS4aoi-URdu-g9XXNOA',
+      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseApiKey,
       {
         email,
         password,
@@ -44,14 +45,14 @@ export class AuthService {
     localStorage.setItem('userData', JSON.stringify(user));
 
     const expirationTime = expirationDate.getTime() * 1000;
-    console.log(expirationTime)
+    console.log(expirationTime);
     // this.autoLogOut(expirationTime);
 
   }
 
   signUp(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCnOmRBDc8tqGm0QS4aoi-URdu-g9XXNOA',
+      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseApiKey,
       {
         email,
         password,
