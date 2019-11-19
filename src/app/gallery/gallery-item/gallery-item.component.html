@@ -1,17 +1,14 @@
-<div class="card card-blog fill-light" *ngIf="colorPalette.length" [ngStyle]="{'background-color': colorPalette[0] | colorToHEX}">
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <div class="card-image">
-        <img class="img" src={{galleryItem.imageUrl}}/>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <div class="content">
-        <h3 class="category text-primary" [ngStyle]="{'color': colorPalette[1] | colorToHEX}">{{galleryItem.title}}</h3>
-        <p class="card-description text-dark-secondary" [ngStyle]="{'color': colorPalette[2] | colorToHEX}">
-          {{galleryItem.description}}</p>
-        <p>{{galleryItem.createdAt|date}}</p>
-      </div>
+<div class="gallery-item--wrapper" *ngIf="colorPalette.length"
+     [ngStyle]="{'background-image': 'url('+galleryItem.imageUrl+')'}">
+  <div class="gallery-item--image">
+    <div class="content">
+      <h3 class="gallery-item--title" [ngStyle]="{'color': colorPalette[1] | colorToHEX}">{{galleryItem.title}}</h3>
+      <p [ngStyle]="{'color': colorPalette[3] | colorToHEX}">{{galleryItem.createdAt|date}}</p>
+      <a
+        [ngStyle]="{'color': colorPalette[2] | colorToHEX}"
+        [routerLink]="[galleryItem.id]"
+        routerLinkActive="active"
+      >Details</a>
     </div>
   </div>
 </div>

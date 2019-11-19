@@ -35,6 +35,10 @@ export class GalleryService {
     return throwError('We got no information');
   }
 
+  getGalleryItem(id: string): GalleryItemModel[] {
+    return this.galleryItems.value.filter(res => res.id === id) || [];
+  }
+
   fetchImages() {
     this.http.get<GalleryItemModel[]>(
       'https://ng-course-487a6.firebaseio.com/gallery.json?&print=pretty'
