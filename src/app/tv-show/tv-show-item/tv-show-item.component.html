@@ -1,0 +1,42 @@
+<div *ngIf="show && colorPalette.length" class="tvShow-item"
+     [ngStyle]="{'background': getGradient()}">
+  <div class="row">
+    <div class="col-12">
+      <div class="tvShow--image-wrapper">
+        <img class="image" src="{{generateImage(show.posterPath,'w500')}}" alt="{{show.name}}">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="content">
+        <h5 [ngStyle]="{'color': colorPalette[1] | colorToHEX}">{{show.name}}</h5>
+        <h6>
+          <fa-icon [icon]="faFilm"></fa-icon>
+          ({{show.originalName}})
+        </h6>
+        <div [ngStyle]="{'color': colorPalette[2] | colorToHEX}" class="info">
+          <p>
+            <fa-icon [icon]="faFire"></fa-icon>
+            Popularity: <span>{{show.popularity}}</span></p>
+          <p>
+            <fa-icon [icon]="faPoll"></fa-icon>
+            Vote Average: <span> {{show.voteAverage}}</span></p>
+          <p>
+            <fa-icon [icon]="faGlobeAmericas"></fa-icon>
+            Country: {{show.originCountry}}
+          </p>
+          <p>
+            <fa-icon [icon]="faLanguage"></fa-icon>
+            Language: <span>{{show.originalLanguage}}</span></p>
+          <!--<p>First time on the screen: <span>{{show.firstAirDate}}</span></p>-->
+          <!--{{show.genreIds}}-->
+          <!--<p> Votes: {{show.voteCount}}</p>-->
+        </div>
+        <a [routerLink]="[show.id]"
+           routerLinkActive="active">
+          <fa-icon [icon]="faArrowCircleRight" class="float-right"
+                   [ngStyle]="{'color': colorPalette[1] | colorToHEX}"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
