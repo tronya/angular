@@ -5,6 +5,7 @@ import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.compone
 import {DropdownDirective} from './dropdown.directive';
 import {ColorToHexPipe} from './colorToHex.pipe';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [LoadingSpinnerComponent, DropdownDirective, ColorToHexPipe],
@@ -20,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    FontAwesomeModule
   ]
 })
 

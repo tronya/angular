@@ -12,3 +12,7 @@ export const getImageColors = async (src: string, count: number = 5) => {
     return colorThief.getPalette(img, count);
   });
 };
+
+export const generateImage = (src: string, size: string = 'w500') => {
+  return `https://image.tmdb.org/t/p/${size}/${src}`;
+};

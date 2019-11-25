@@ -8,6 +8,7 @@ const appRoutes: Routes = [
   {path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'},
   {path: 'gallery', loadChildren: './gallery/gallery.module#GalleryModule'},
   {path: 'shopping-list', loadChildren: './shopping-list/shopping-list.module#ShoppingListModule'},
+  {path: 'tv-show', loadChildren: './tv-show/tv-show.module#TvShowModule'},
   {path: '**', component: PageNotFoundComponent},
 ];
 

@@ -6,6 +6,9 @@ import {BehaviorSubject} from 'rxjs';
 import {UserModel} from './user.model';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
+import {Store} from '@ngrx/store';
+import * as fromApp from '../store/app.reducer';
+import * as authActions from './store/auth.actions';
 
 export interface AuthResponseData {
   kind: string;
@@ -22,7 +25,10 @@ export class AuthService {
   user = new BehaviorSubject<UserModel>(null);
   private tokenExpirationTimer: any;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private store: Store<fromApp.AppState>) {
   }
 
   signIn(email: string, password: string) {
@@ -77,6 +83,7 @@ export class AuthService {
       return;
     } else {
       this.user.next(loggedUser);
+      //this.store.dispatch(new authActions.Login())
       const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
 
       this.autoLogOut(expirationDuration);
