@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -11,7 +12,14 @@ import {RecipeService} from './recipes/recipe.service';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'; // Angular CLI environment
+
+
 import * as fromApp from './store/app.reducer';
+
+import {AuthEffects} from './auth/store/auth.effects';
+import {TvShowEffects} from './tv-show/store/tv-show.effects';
 
 @NgModule({
   declarations: [
@@ -22,8 +30,12 @@ import * as fromApp from './store/app.reducer';
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot(fromApp.appReducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
+    EffectsModule.forRoot([AuthEffects, TvShowEffects]),
     SharedModule,
-    AuthModule,
     AppRoutingModule,
   ],
   providers: [ShoppingListService, RecipeService, {

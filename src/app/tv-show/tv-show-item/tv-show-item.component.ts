@@ -48,7 +48,7 @@ export class TvShowItemComponent implements OnInit {
   getGradient() {
     const start = new ColorToHexPipe().transform(this.colorPalette[0]);
     const end = new ColorToHexPipe().transform(this.colorPalette[2]);
-    return `linear-gradient(to top left, ${start},${end})`;
+    return `linear-gradient(to right top, ${start},${end})`;
   }
 
 }

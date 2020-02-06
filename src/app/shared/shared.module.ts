@@ -6,9 +6,18 @@ import {DropdownDirective} from './dropdown.directive';
 import {ColorToHexPipe} from './colorToHex.pipe';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { AlertComponent } from './alert/alert.component';
+import {LoggingService} from '../logging.service'
+import { PlaceholderDirective } from './placeholder/placeholder.directive';
 
 @NgModule({
-  declarations: [LoadingSpinnerComponent, DropdownDirective, ColorToHexPipe],
+  declarations: [
+    LoadingSpinnerComponent,
+     DropdownDirective,
+      ColorToHexPipe,
+       AlertComponent,
+       PlaceholderDirective
+      ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -21,8 +30,12 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule
-  ]
+    FontAwesomeModule,
+    AlertComponent,
+    PlaceholderDirective
+  ],
+  entryComponents: [AlertComponent],
+  providers: [LoggingService]
 })
 
 export class SharedModule {
