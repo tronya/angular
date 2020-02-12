@@ -1,0 +1,39 @@
+<div class="information" *ngIf="information">
+  <h3 class="title"> {{information.name}}</h3>
+  <p>Original name: {{information.originalName}}</p>
+  <!--  <img src="{{information.getBackDrops}}" alt="{{information.name}}">-->
+
+  <div class="ganres">
+    <p *ngFor="let ganre of information.genres">
+      {{ganre.name}}
+    </p>
+  </div>
+
+  <a href="{{information.homepage}}">Home page</a>
+
+  <p>in production:
+    <span>{{information.inProduction}}</span>
+  </p>
+
+  <p>Languages: <span>{{information.languages}}</span></p>
+
+  <p>Current Episode:<span>{{information.episodeRunTime}}</span></p>
+  <p>First air date: <span>{{information.firstAirDate | date}}</span></p>
+
+  <p>Last Air Date: <span>{{information.lastAirDate | date}}</span></p>
+
+  <p>Status {{information.status}}</p>
+  <p>Type: {{information.type}}</p>
+  <p>Vote average: {{information.voteAverage}}</p>
+  <p>Vote count: {{information.voteCount}}</p>
+  <p>Number of episodes: {{information.numberOfEpisodes}}</p>
+  <p>Number of Seasons: {{information.numberOfSeasons}}</p>
+  <p>Origin Country: {{information.originCountry}}</p>
+  <p>Original language: {{information.originalLanguage}}</p>
+  <p>Popularity: {{information.popularity}}</p>
+
+  <h4>Description:</h4>
+  <p class="description"> {{information.overview}}</p>
+
+
+</div>
