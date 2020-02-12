@@ -39,6 +39,4 @@ export function tvShowReducer(
     default:
       return state;
   }
-
-  return state;
 }

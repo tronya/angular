@@ -1,78 +1,42 @@
-<div *ngIf="tvShowDetail">
-  <h3 class="title"> {{tvShowDetail.name}}</h3>
-  <p>Original name: {{tvShowDetail.originalName}}</p>
-  <img src="{{tvShowDetail.getPoster}}" alt="{{tvShowDetail.name}}">
-  <img src="{{tvShowDetail.getBackDrops}}" alt="{{tvShowDetail.name}}">
-
-  <p> Current Episode:<span>{{tvShowDetail.episodeRunTime}}</span></p>
-  <p>First air date: <span>{{tvShowDetail.firstAirDate}}</span></p>
-
-  <div class="ganres">
-    <p *ngFor="let ganre of tvShowDetail.genres">
-      {{ganre.name}}
-    </p>
-  </div>
-
-  <a href="{{tvShowDetail.homepage}}">Home page</a>
-
-  <p>in production:
-    <span>{{tvShowDetail.inProduction}}</span>
-  </p>
-
-  <p> Languages: <span>{{tvShowDetail.languages}}</span></p>
-  <p>Last Air Date: <span>{{tvShowDetail.lastAirDate}}</span></p>
-  <p>Last Episode Date: {{tvShowDetail.lastEpisodeToAir}}</p>
-
-  <div *ngFor="let network of tvShowDetail.networks">
-    <img src="{{generateImage(network.logo_path)}}" alt="{{network.name}}">
-    <p> {{network.name}}</p>
-    <p> {{network.origin_country}}</p>
-  </div>
-
-
-  <div *ngIf="tvShowDetail.nextEpisodeToAir">
-    <h3>Next episode</h3>
-    <p> Will be on: {{tvShowDetail.nextEpisodeToAir.air_date}}</p>
-    <p> Episode number: {{tvShowDetail.nextEpisodeToAir.episode_number}}</p>
-    <p> Name: {{tvShowDetail.nextEpisodeToAir.name}}</p>
-    <b> Overview: {{tvShowDetail.nextEpisodeToAir.overview}}</b>
-    <p> Season number: {{tvShowDetail.nextEpisodeToAir.season_number}}</p>
-    <div *ngIf="tvShowDetail.nextEpisodeToAir.still_path">
-      <img src="{{generateImage(tvShowDetail.nextEpisodeToAir.still_path)}}"
-           alt="{{tvShowDetail.nextEpisodeToAir.name}}"/>
+<ng-container *ngIf="(tvShowDetail$ | async) as tvShowDetail;">
+  <div *ngIf="tvShowDetail" class="tv-show">
+    <div class="tv-show-banner">
+      <img src="{{tvShowDetail.getPoster}}" alt="{{tvShowDetail.name}}">
     </div>
-    <p> Vote Average: {{tvShowDetail.nextEpisodeToAir.vote_average}}</p>
-    <p> Vote count: {{tvShowDetail.nextEpisodeToAir.vote_count}}</p>
+    <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
+    <app-episode *ngIf="tvShowDetail.lastEpisodeToAir" [episode]="tvShowDetail.lastEpisodeToAir"></app-episode>
+  </div>
+  <div>
+    <!--  <div *ngIf="tvShowDetail.networks" *ngFor="let network of tvShowDetail.networks">-->
+    <!--    <img src="{{generateImage(network.logo_path)}}" alt="{{network.name}}">-->
+    <!--    <p> {{network.name}}</p>-->
+    <!--    <p> {{network.origin_country}}</p>-->
+    <!--  </div>-->
+
+
+    <!--  <div *ngIf="tvShowDetail.nextEpisodeToAir">-->
+    <!--    <h3>Next episode</h3>-->
+    <!--    <p> Will be on: {{tvShowDetail.nextEpisodeToAir.air_date}}</p>-->
+    <!--    <p> Episode number: {{tvShowDetail.nextEpisodeToAir.episode_number}}</p>-->
+    <!--    <p> Name: {{tvShowDetail.nextEpisodeToAir.name}}</p>-->
+    <!--    <b> Overview: {{tvShowDetail.nextEpisodeToAir.overview}}</b>-->
+    <!--    <p> Season number: {{tvShowDetail.nextEpisodeToAir.season_number}}</p>-->
+    <!--    <div *ngIf="tvShowDetail.nextEpisodeToAir.still_path">-->
+    <!--      <img src="{{generateImage(tvShowDetail.nextEpisodeToAir.still_path)}}"-->
+    <!--           alt="{{tvShowDetail.nextEpisodeToAir.name}}"/>-->
+    <!--    </div>-->
+    <!--    <p> Vote Average: {{tvShowDetail.nextEpisodeToAir.vote_average}}</p>-->
+    <!--    <p> Vote count: {{tvShowDetail.nextEpisodeToAir.vote_count}}</p>-->
+    <!--  </div>-->
+
+
+    <!--  <div *ngFor="let production of tvShowDetail.productionCompanies">-->
+    <!--    <p> {{production.name}}</p>-->
+    <!--    <img src="{{generateImage(production.logo_path)}}"/>-->
+    <!--    <p> {{production.origin_country}}</p>-->
+    <!--  </div>-->
+
+    <app-seasons *ngIf="tvShowDetail" [seasons]="tvShowDetail.seasons"></app-seasons>
   </div>
 
-  <p>Number of episodes: {{tvShowDetail.numberOfEpisodes}}</p>
-  <p>Number of Seasons: {{tvShowDetail.numberOfSeasons}}</p>
-  <p>Origin Country: {{tvShowDetail.originCountry}}</p>
-  <p> Original language: {{tvShowDetail.originalLanguage}}</p>
-
-  <h3>Description:</h3>
-  <p class="description"> {{tvShowDetail.overview}}</p>
-
-  <p>Popularity: {{tvShowDetail.popularity}}</p>
-
-  <div *ngFor="let production of tvShowDetail.productionCompanies">
-    <p> {{production.name}}</p>
-    <img src="{{generateImage(production.logo_path)}}"/>
-    <p> {{production.origin_country}}</p>
-  </div>
-
-  <div class="seasons">
-    <div *ngFor="let seasons of tvShowDetail.seasons" class="seasons-item">
-      <p>Season: {{seasons.season_number}} <span>{{seasons.name}}</span></p>
-      <p>{{seasons.episode_count}}</p>
-      <p>{{seasons.air_date}}</p>
-      <p>{{seasons.overview}}</p>
-      <img src="{{generateImage(seasons.poster_path, 'w200')}}" alt="{{seasons.name}}">
-    </div>
-  </div>
-
-  <p> {{tvShowDetail.status}}</p>
-  <p> {{tvShowDetail.type}}</p>
-  <p> {{tvShowDetail.voteAverage}}</p>
-  <p> {{tvShowDetail.voteCount}}</p>
-</div>
+</ng-container>

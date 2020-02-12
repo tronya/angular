@@ -1,4 +1,4 @@
 .tvShow-wrapper {
-  background-color: black;
+  background: radial-gradient(circle at 15% 15%, #232627, #333235);
   padding: 1rem 0;
 }

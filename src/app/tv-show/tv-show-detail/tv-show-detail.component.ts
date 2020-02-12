@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {TvShowService} from '../tv-show.service';
-import {TvShowDetail} from './tv-show-detail-model';
 import {generateImage} from '../../shared/helpers';
+import ColorThief from 'src/vibrant';
 
 @Component({
   selector: 'app-tv-show-detail',
@@ -10,23 +10,30 @@ import {generateImage} from '../../shared/helpers';
   styleUrls: ['./tv-show-detail.component.css']
 })
 export class TvShowDetailComponent implements OnInit {
-  tvShowDetail: TvShowDetail;
-  generateImage = generateImage
+  generateImage = generateImage;
+  colorPalette = [];
+  routeId = this.route.snapshot.paramMap.get('id');
+
+  tvShowDetail$ = this.tvShow.getTvShowDetail(+this.routeId);
 
   constructor(private route: ActivatedRoute, private tvShow: TvShowService) {
   }
 
+  getImageColors(src: string, count: number = 5) {
+
+    const colorThief = new ColorThief();
+    const img = new Image();
+    const googleProxyURL = 'https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=';
+
+    img.crossOrigin = 'Anonymous';
+    img.src = googleProxyURL + encodeURIComponent(src);
+
+    img.addEventListener('load', () => {
+      this.colorPalette = colorThief.getPalette(img, count);
+    });
+  }
+
   ngOnInit() {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.tvShow.getTvShowDetail(params.id)
-            .subscribe(detail => {
-              console.log(detail)
-              this.tvShowDetail = detail;
-            });
-        }
-      );
   }
 
 }
