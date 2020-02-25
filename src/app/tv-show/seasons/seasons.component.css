@@ -1,0 +1,34 @@
+.seasons {
+  padding: 1rem;
+  background: radial-gradient(circle at 15% 15%, #232627, #333235);
+}
+
+.seasons-wrapper{
+  color: wheat;
+  overflow-x: scroll;
+
+  display: flex;
+}
+
+.section--title {
+  color: white;
+}
+
+.seasons-item {
+  padding: 1rem;
+}
+
+.seasons-item p{
+  color: white;
+  text-decoration: none;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}

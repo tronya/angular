@@ -25,16 +25,16 @@ export class TvShowComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.something = anime({
-        targets: '.tvShow-item',
-        scale: [
-          {value: .8, easing: 'easeOutSine', duration: 500},
-          {value: 1, easing: 'easeInOutQuad', duration: 1200}
-        ],
-        delay: anime.stagger(100, {start: 500})
-      });
-    }, 1000);
+    // setTimeout(() => {
+    //   this.something = anime({
+    //     targets: '.tvShow-item',
+    //     scale: [
+    //       {value: .8, easing: 'easeOutSine', duration: 500},
+    //       {value: 1, easing: 'easeInOutQuad', duration: 1200}
+    //     ],
+    //     delay: anime.stagger(100, {start: 500})
+    //   });
+    // }, 1000);
   }
 
   ngOnInit() {

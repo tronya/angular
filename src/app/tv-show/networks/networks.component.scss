@@ -1,0 +1,17 @@
+.network {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 2rem 0;
+}
+
+.network-item {
+  img {
+    height: 3rem;
+  }
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+}

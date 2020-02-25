@@ -3,18 +3,22 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {TvShowService} from '../tv-show.service';
 import {generateImage} from '../../shared/helpers';
 import ColorThief from 'src/vibrant';
+import {TvShowsModel} from '../tv-shows.model';
+import {TvShowModel} from '../tv-show.model';
+import {map} from 'rxjs/operators';
+import {TvShowDetail} from './tv-show-detail-model';
 
 @Component({
   selector: 'app-tv-show-detail',
   templateUrl: './tv-show-detail.component.html',
-  styleUrls: ['./tv-show-detail.component.css']
+  styleUrls: ['./tv-show-detail.component.scss']
 })
 export class TvShowDetailComponent implements OnInit {
   generateImage = generateImage;
   colorPalette = [];
   routeId = this.route.snapshot.paramMap.get('id');
-
   tvShowDetail$ = this.tvShow.getTvShowDetail(+this.routeId);
+
 
   constructor(private route: ActivatedRoute, private tvShow: TvShowService) {
   }
@@ -34,6 +38,7 @@ export class TvShowDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tvShowDetail$.subscribe(r => console.log(r));
   }
 
 }

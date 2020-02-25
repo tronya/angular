@@ -1,6 +1,6 @@
-<div class="information" *ngIf="information">
+<ng-container class="information" *ngIf="information">
   <h3 class="title"> {{information.name}}</h3>
-  <p>Original name: {{information.originalName}}</p>
+  <p><span>Original name:</span> {{information.originalName}}</p>
   <!--  <img src="{{information.getBackDrops}}" alt="{{information.name}}">-->
 
   <div class="ganres">
@@ -11,29 +11,27 @@
 
   <a href="{{information.homepage}}">Home page</a>
 
-  <p>in production:
-    <span>{{information.inProduction}}</span>
-  </p>
+  <p><span>in production:</span>{{information.inProduction}}</p>
 
-  <p>Languages: <span>{{information.languages}}</span></p>
+  <p><span>Languages:</span>{{information.languages}}</p>
 
-  <p>Current Episode:<span>{{information.episodeRunTime}}</span></p>
-  <p>First air date: <span>{{information.firstAirDate | date}}</span></p>
+  <p><span>Current Episode</span>{{information.episodeRunTime}}</p>
+  <p><span>First air date:</span> {{information.firstAirDate | date}}</p>
 
-  <p>Last Air Date: <span>{{information.lastAirDate | date}}</span></p>
+  <p><span>Last Air Date:</span> {{information.lastAirDate | date}}</p>
 
-  <p>Status {{information.status}}</p>
-  <p>Type: {{information.type}}</p>
-  <p>Vote average: {{information.voteAverage}}</p>
-  <p>Vote count: {{information.voteCount}}</p>
-  <p>Number of episodes: {{information.numberOfEpisodes}}</p>
-  <p>Number of Seasons: {{information.numberOfSeasons}}</p>
-  <p>Origin Country: {{information.originCountry}}</p>
-  <p>Original language: {{information.originalLanguage}}</p>
-  <p>Popularity: {{information.popularity}}</p>
+  <p><span>Status</span> {{information.status}}</p>
+  <p><span>Type:</span> {{information.type}}</p>
+  <p><span>Vote average:</span> {{information.voteAverage}}</p>
+  <p><span>Vote count:</span> {{information.voteCount}}</p>
+  <p><span>Number of episodes:</span> {{information.numberOfEpisodes}}</p>
+  <p><span>Number of Seasons:</span> {{information.numberOfSeasons}}</p>
+  <p><span>Origin Country:</span> {{information.originCountry}}</p>
+  <p><span>Original language:</span> {{information.originalLanguage}}</p>
+  <p><span>Popularity:</span> {{information.popularity}}</p>
 
-  <h4>Description:</h4>
+  <h4 class="description-title">Description:</h4>
   <p class="description"> {{information.overview}}</p>
 
 
-</div>
+</ng-container>

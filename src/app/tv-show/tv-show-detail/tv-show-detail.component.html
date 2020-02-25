@@ -1,42 +1,24 @@
 <ng-container *ngIf="(tvShowDetail$ | async) as tvShowDetail;">
-  <div *ngIf="tvShowDetail" class="tv-show">
-    <div class="tv-show-banner">
-      <img src="{{tvShowDetail.getPoster}}" alt="{{tvShowDetail.name}}">
+  <div class="tv-show">
+    <div class="tv-show__header">
+      <div class="tv-show-banner">
+        <img src="{{tvShowDetail.getPoster}}" alt="{{tvShowDetail.name}}">
+      </div>
+      <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
     </div>
-    <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
-    <app-episode *ngIf="tvShowDetail.lastEpisodeToAir" [episode]="tvShowDetail.lastEpisodeToAir"></app-episode>
-  </div>
-  <div>
-    <!--  <div *ngIf="tvShowDetail.networks" *ngFor="let network of tvShowDetail.networks">-->
-    <!--    <img src="{{generateImage(network.logo_path)}}" alt="{{network.name}}">-->
-    <!--    <p> {{network.name}}</p>-->
-    <!--    <p> {{network.origin_country}}</p>-->
-    <!--  </div>-->
-
-
-    <!--  <div *ngIf="tvShowDetail.nextEpisodeToAir">-->
-    <!--    <h3>Next episode</h3>-->
-    <!--    <p> Will be on: {{tvShowDetail.nextEpisodeToAir.air_date}}</p>-->
-    <!--    <p> Episode number: {{tvShowDetail.nextEpisodeToAir.episode_number}}</p>-->
-    <!--    <p> Name: {{tvShowDetail.nextEpisodeToAir.name}}</p>-->
-    <!--    <b> Overview: {{tvShowDetail.nextEpisodeToAir.overview}}</b>-->
-    <!--    <p> Season number: {{tvShowDetail.nextEpisodeToAir.season_number}}</p>-->
-    <!--    <div *ngIf="tvShowDetail.nextEpisodeToAir.still_path">-->
-    <!--      <img src="{{generateImage(tvShowDetail.nextEpisodeToAir.still_path)}}"-->
-    <!--           alt="{{tvShowDetail.nextEpisodeToAir.name}}"/>-->
-    <!--    </div>-->
-    <!--    <p> Vote Average: {{tvShowDetail.nextEpisodeToAir.vote_average}}</p>-->
-    <!--    <p> Vote count: {{tvShowDetail.nextEpisodeToAir.vote_count}}</p>-->
-    <!--  </div>-->
-
-
-    <!--  <div *ngFor="let production of tvShowDetail.productionCompanies">-->
-    <!--    <p> {{production.name}}</p>-->
-    <!--    <img src="{{generateImage(production.logo_path)}}"/>-->
-    <!--    <p> {{production.origin_country}}</p>-->
-    <!--  </div>-->
-
-    <app-seasons *ngIf="tvShowDetail" [seasons]="tvShowDetail.seasons"></app-seasons>
+    <div class="tv-show__content">
+      <app-networks [networks]="tvShowDetail.networks"></app-networks>
+      <div class="row">
+        <div class="col-md-6">
+          <app-episode [episode]="tvShowDetail.lastEpisodeToAir"></app-episode>
+        </div>
+        <div class="col-md-6">
+          <app-episode [episode]="tvShowDetail.nextEpisodeToAir"></app-episode>
+        </div>
+      </div>
+      <app-seasons *ngIf="tvShowDetail" [seasons]="tvShowDetail.seasons"></app-seasons>
+      <app-production-companies [productionCompanies]="tvShowDetail.productionCompanies"></app-production-companies>
+    </div>
   </div>
 
 </ng-container>

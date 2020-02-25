@@ -7,10 +7,19 @@ import {TvShowDetailComponent} from './tv-show-detail/tv-show-detail.component';
 import {SeasonsComponent} from './seasons/seasons.component';
 import {EpisodeComponent} from './episode/episode.component';
 import {InformationComponent} from './information/information.component';
+import {NetworksComponent} from './networks/networks.component';
+import {ProductionCompaniesComponent} from './production-companies/production-companies.component';
 
 @NgModule({
-  declarations: [TvShowComponent, TvShowItemComponent, TvShowDetailComponent, SeasonsComponent, EpisodeComponent, InformationComponent],
-  exports: [SeasonsComponent],
+  declarations: [TvShowComponent,
+    TvShowItemComponent,
+    TvShowDetailComponent,
+    SeasonsComponent,
+    EpisodeComponent,
+    InformationComponent,
+    NetworksComponent,
+    ProductionCompaniesComponent
+  ],
   imports: [
     SharedModule,
     TvShowRouterModule,

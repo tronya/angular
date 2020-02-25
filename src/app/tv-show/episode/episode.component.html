@@ -1,0 +1,15 @@
+<div class="episode" *ngIf="episode">
+  <h4 class="section--title">Latest episode</h4>
+  <hr>
+  <h3 class="title">{{episode.name}}</h3>
+  <p><span>Air date:</span> {{episode.air_date | date}}</p>
+  <p><span>Episode number:</span> {{episode.episode_number}}</p>
+  <p><span>Overview:</span> {{episode.overview}}</p>
+  <p><span>Production code:</span> {{episode.production_code}}</p>
+  <p><span>Season number:</span> {{episode.season_number}}</p>
+  <p><span>Show id:</span> {{episode.show_id}}</p>
+  <img *ngIf="episode.still_path" class="image" src="{{generateImage(episode.still_path,'w500')}}" alt="{{episode.name}}">
+  <p><span>Vote average:</span> {{episode.vote_average}}</p>
+  <p><span>Vote count:</span> {{episode.vote_count}}</p>
+  <hr>
+</div>

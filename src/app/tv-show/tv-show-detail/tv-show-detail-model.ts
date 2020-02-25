@@ -15,7 +15,7 @@ interface IGanres {
 
 }
 
-interface ILastEpisodeAir {
+export interface IEpisodeAir {
   air_date: string;
   episode_number: number;
   id: number;
@@ -29,28 +29,33 @@ interface ILastEpisodeAir {
   vote_count: number;
 }
 
-interface INetworks {
+export interface INetworks {
   name: string;
   id: number;
   logo_path: string;
   origin_country: string;
 }
 
-interface IProductionCompanies {
+export interface IProductionCompanies {
   id: number;
   logo_path: null | string;
   name: string;
   origin_country: string;
 }
 
-interface ISeasons {
+export interface ISeasons {
   air_date: string;
-  episode_count: number;
+  episode_number: number;
   id: number;
   name: string;
   overview: string;
-  poster_path: string;
+  production_code: string;
   season_number: number;
+  show_id: number;
+  still_path: string;
+  vote_average: number;
+  vote_count: number;
+  nextEpisodeToAir: { air_date: string };
 }
 
 export class TvShowDetail {
@@ -64,10 +69,10 @@ export class TvShowDetail {
   inProduction: boolean;
   languages: string[];
   lastAirDate: string;
-  lastEpisodeToAir: ILastEpisodeAir;
+  lastEpisodeToAir: IEpisodeAir;
   name: string;
   networks: INetworks;
-  nextEpisodeToAir: ILastEpisodeAir;
+  nextEpisodeToAir: IEpisodeAir;
   numberOfEpisodes: number;
   numberOfSeasons: number;
   originCountry: string[];

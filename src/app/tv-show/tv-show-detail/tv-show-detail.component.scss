@@ -1,0 +1,34 @@
+.tv-show {
+  background: black;
+
+  &__header {
+    display: flex;
+    padding: 2rem;
+  }
+
+  &__content {
+
+  }
+}
+
+.tv-show-banner{
+  min-width: 30rem;
+  img{
+    padding: 1rem;
+    width: 100%;
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+}
+
+.tv-show-cover {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.tv-show-content {
+  padding: 2rem;
+}
+

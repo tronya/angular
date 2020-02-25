@@ -1,0 +1,12 @@
+<div *ngIf="productionCompanies" class="production">
+  <h4 class="section--title">Production companies</h4>
+  <div class="production--wrapper">
+    <div *ngFor="let production of productionCompanies" class="production--item">
+      <p class="production--title"> {{production.name}}</p>
+      <p *ngIf="production.origin_country" class="production--country">Country: {{production.origin_country}}</p>
+      <div class="production--image">
+        <img *ngIf="production.logo_path" src="{{generateImage(production.logo_path)}}"/>
+      </div>
+    </div>
+  </div>
+</div>

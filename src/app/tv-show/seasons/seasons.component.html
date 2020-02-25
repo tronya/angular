@@ -1,0 +1,15 @@
+<div class="seasons" *ngIf="seasons.length !== 0">
+  <h4 class="section--title">Production companies</h4>
+  <div class="seasons-wrapper">
+    <div *ngFor="let season of seasons" class="seasons-item">
+      <a [routerLink]="['boo',season.id]" routerLinkActive="active">
+        <img src="{{generateImage(season.poster_path, 'w200')}}" alt="{{season.name}}">
+        <p>Season: {{season.season_number}} <span>{{season.name}}</span></p>
+        <p>Episodes count: {{season.episode_count}}</p>
+        <p>Air date: {{season.air_date | date}}</p>
+        <!--    <p>{{season.overview}}</p>-->
+
+      </a>
+    </div>
+  </div>
+</div>
