@@ -9,6 +9,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { AlertComponent } from './alert/alert.component';
 import {LoggingService} from '../logging.service'
 import { PlaceholderDirective } from './placeholder/placeholder.directive';
+import {ParallaxSliderModule} from '../parallax-slider/parallax-slider.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PlaceholderDirective } from './placeholder/placeholder.directive';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    ParallaxSliderModule
   ],
   exports: [
     LoadingSpinnerComponent,
@@ -32,7 +34,8 @@ import { PlaceholderDirective } from './placeholder/placeholder.directive';
     FormsModule,
     FontAwesomeModule,
     AlertComponent,
-    PlaceholderDirective
+    PlaceholderDirective,
+    ParallaxSliderModule
   ],
   entryComponents: [AlertComponent],
   providers: [LoggingService]

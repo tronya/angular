@@ -6,11 +6,7 @@ import {EffectsModule} from '@ngrx/effects';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
-import {ShoppingListService} from './shopping-list/shopping-list.service';
 import {AppRoutingModule} from './app-routing.module';
-import {RecipeService} from './recipes/recipe.service';
-import {AuthInterceptorService} from './auth/auth-interceptor.service';
-import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
@@ -18,7 +14,6 @@ import { environment } from '../environments/environment'; // Angular CLI enviro
 
 import * as fromApp from './store/app.reducer';
 
-import {AuthEffects} from './auth/store/auth.effects';
 import {TvShowEffects} from './tv-show/store/tv-show.effects';
 
 @NgModule({
@@ -34,15 +29,11 @@ import {TvShowEffects} from './tv-show/store/tv-show.effects';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
-    EffectsModule.forRoot([AuthEffects, TvShowEffects]),
+    EffectsModule.forRoot([TvShowEffects]),
     SharedModule,
     AppRoutingModule,
   ],
-  providers: [ShoppingListService, RecipeService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="slider-information">
+    <h3>{{$sliderItems[0].name}}</h3>
+  </div>
+  <div class="slider-wrapper"
+       [ngStyle]="{height:height + 'px'}">
+    <app-parallax-slider-item
+      class="slide"
+      *ngFor="let slide of $sliderItems; let i = index;let l = count"
+      [slide]=slide
+      [nextSlideAction]=nextSlideAction
+      [prevSlideAction]=prevSlideAction
+      [slideIndex]=i
+      [totalSlides]=l
+      (slideClick)="slideClicked(i,$event)"
+      [ngStyle]="{
+      zIndex:l-i
+      }"
+    ></app-parallax-slider-item>
+  </div>
+  <div class="slider-actions">
+    <button (click)="prevSlide()">prev</button>
+    <button (click)="nextSlide()">next</button>
+  </div>
+</div>

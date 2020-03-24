@@ -12,29 +12,15 @@ import {NgForm} from '@angular/forms';
   templateUrl: './tv-show.component.html',
   styleUrls: ['./tv-show.component.css']
 })
-export class TvShowComponent implements OnInit, OnDestroy, AfterViewInit {
+export class TvShowComponent implements OnInit, OnDestroy {
   shows: TvShowModel[] = [];
   loading = false;
-  something: any;
 
   private tvShowSub: Subscription;
 
   constructor(
     private store: Store<fromApp.AppState>,
   ) {
-  }
-
-  ngAfterViewInit(): void {
-    // setTimeout(() => {
-    //   this.something = anime({
-    //     targets: '.tvShow-item',
-    //     scale: [
-    //       {value: .8, easing: 'easeOutSine', duration: 500},
-    //       {value: 1, easing: 'easeInOutQuad', duration: 1200}
-    //     ],
-    //     delay: anime.stagger(100, {start: 500})
-    //   });
-    // }, 1000);
   }
 
   ngOnInit() {
