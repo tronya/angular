@@ -9,9 +9,11 @@ import {EpisodeComponent} from './episode/episode.component';
 import {InformationComponent} from './information/information.component';
 import {NetworksComponent} from './networks/networks.component';
 import {ProductionCompaniesComponent} from './production-companies/production-companies.component';
+import {ParallaxSliderModule} from '../parallax-slider/parallax-slider.module';
 
 @NgModule({
-  declarations: [TvShowComponent,
+  declarations: [
+    TvShowComponent,
     TvShowItemComponent,
     TvShowDetailComponent,
     SeasonsComponent,
@@ -20,10 +22,11 @@ import {ProductionCompaniesComponent} from './production-companies/production-co
     NetworksComponent,
     ProductionCompaniesComponent
   ],
-  imports: [
-    SharedModule,
-    TvShowRouterModule,
-  ],
+    imports: [
+        SharedModule,
+        TvShowRouterModule,
+        ParallaxSliderModule,
+    ],
 })
 
 export class TvShowModule {

@@ -4,10 +4,12 @@
       <div class="tv-show-banner">
         <img src="{{tvShowDetail.getPoster}}" alt="{{tvShowDetail.name}}">
       </div>
-      <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
+      <div class="tv-show-info">
+        <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
+        <app-networks [networks]="tvShowDetail.networks"></app-networks>
+      </div>
     </div>
     <div class="tv-show__content">
-      <app-networks [networks]="tvShowDetail.networks"></app-networks>
       <div class="row">
         <div class="col-md-6">
           <app-episode [episode]="tvShowDetail.lastEpisodeToAir"></app-episode>

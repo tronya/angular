@@ -10,7 +10,6 @@ import {ShoppingListService} from './shopping-list/shopping-list.service';
 import {AppRoutingModule} from './app-routing.module';
 import {RecipeService} from './recipes/recipe.service';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
-import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
