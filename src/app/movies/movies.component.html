@@ -1,0 +1,23 @@
+<div *ngIf="loading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="movies">
+  <div *ngFor="let movie of movies; let i = index;"
+       class="movies__item">
+    <div class="movies__gradient"
+         [ngStyle]="{
+         'background-image':'url(' + movie.getBackdropPathImage + ')',
+         'z-index':-i
+         }"
+    ></div>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <h3>{{movie.title}}</h3>
+        <img src="{{movie.getPosterImage}}" alt="{{movie.title}}"/>
+      </div>
+      <div class="col-xs-12 col-md-8">
+
+      </div>
+    </div>
+  </div>
+</div>
