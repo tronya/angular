@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TvShowModel} from '../tv-show/tv-show.model';
+import {TvShowModel} from '../../tv-show/tv-show.model';
 
 @Component({
   selector: 'app-parallax-slider',

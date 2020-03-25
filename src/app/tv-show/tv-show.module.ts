@@ -11,7 +11,8 @@ import {NetworksComponent} from './networks/networks.component';
 import {ProductionCompaniesComponent} from './production-companies/production-companies.component';
 
 @NgModule({
-  declarations: [TvShowComponent,
+  declarations: [
+    TvShowComponent,
     TvShowItemComponent,
     TvShowDetailComponent,
     SeasonsComponent,

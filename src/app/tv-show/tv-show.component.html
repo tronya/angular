@@ -8,3 +8,16 @@
     <app-parallax-slider [items]=shows [height]="500"></app-parallax-slider>
   </div>
 </div>
+
+<div *ngIf="shows.length != 0" class="tvShow-wrapper">
+  <div class="container">
+    <h2>Last Seasons</h2>
+    <div class="row">
+      <app-tv-show-item
+        class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
+        *ngFor="let show of shows; let i = index"
+        [show]=show>
+      </app-tv-show-item>
+    </div>
+  </div>
+</div>

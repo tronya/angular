@@ -1,11 +1,9 @@
-import {Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TvShowModel} from './tv-show.model';
 import * as fromApp from '../store/app.reducer';
 import {Store} from '@ngrx/store';
 import * as TvShowActions from './store/tv-show.actions';
-import anime from 'animejs/lib/anime.es.js';
-import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-movies',

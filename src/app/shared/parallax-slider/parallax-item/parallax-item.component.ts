@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {faArrowCircleRight} from '@fortawesome/free-solid-svg-icons';
-import {TvShowModel} from '../../tv-show/tv-show.model';
+import {TvShowModel} from '../../../tv-show/tv-show.model';
 
 @Component({
   selector: 'app-parallax-slider-item',
@@ -23,7 +23,6 @@ export class ParallaxSliderItemComponent implements OnInit {
   }
 
   imageLoaded() {
-    console.log('loaded ' + this.slideIndex);
     this.isLoaded = true;
   }
 

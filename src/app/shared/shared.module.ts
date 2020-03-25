@@ -9,7 +9,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { AlertComponent } from './alert/alert.component';
 import {LoggingService} from '../logging.service'
 import { PlaceholderDirective } from './placeholder/placeholder.directive';
-import {ParallaxSliderModule} from '../parallax-slider/parallax-slider.module';
+import {ParallaxSliderModule} from './parallax-slider/parallax-slider.module';
 
 @NgModule({
   declarations: [
