@@ -8,7 +8,7 @@ import {INetworks} from '../tv-show-detail/tv-show-detail-model';
   styleUrls: ['./networks.component.scss']
 })
 export class NetworksComponent implements OnInit {
-  @Input() networks: INetworks;
+  @Input() networks: INetworks[];
   generateImage = generateImage;
 
   constructor() {

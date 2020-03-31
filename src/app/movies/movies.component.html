@@ -4,19 +4,22 @@
 <div class="movies">
   <div *ngFor="let movie of movies; let i = index;"
        class="movies__item">
-    <div class="movies__gradient"
+    <div class="movies__gradient"></div>
+    <div class="movies__cover"
          [ngStyle]="{
          'background-image':'url(' + movie.getBackdropPathImage + ')',
          'z-index':-i
          }"
     ></div>
-    <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <h3>{{movie.title}}</h3>
-        <img src="{{movie.getPosterImage}}" alt="{{movie.title}}"/>
-      </div>
-      <div class="col-xs-12 col-md-8">
-
+    <div class="movies__content">
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <img class="movies__image" src="{{movie.getPosterImage}}" alt="{{movie.title}}"/>
+        </div>
+        <div class="col-xs-12 col-md-8">
+          <h2>{{movie.title}}</h2>
+          <p>{{movie.overview}}</p>
+        </div>
       </div>
     </div>
   </div>

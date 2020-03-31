@@ -24,9 +24,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.store.dispatch(new moviesActions.MoviesFetchItems());
     this.moviesSub = this.store.select('movies').subscribe(res => {
-      console.log(res);
       this.movies = res.results.map(movie => new MovieItem(movie));
-      console.log(this.movies);
       this.loading = res.loading;
     });
   }

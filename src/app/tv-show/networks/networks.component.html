@@ -1,4 +1,4 @@
-<div class="network" *ngIf="networks.length !==  0">
+<div class="network" *ngIf="networks.length">
   <div *ngFor="let network of networks" class="network-item">
     <img src="{{generateImage(network.logo_path)}}" alt="{{network.name}}">
 <!--    <p> {{network.name}}</p>-->
