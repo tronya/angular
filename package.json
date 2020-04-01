@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "deploy": "ng deploy --base-href https://tronya.github.io/angular/",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ngh": "ngh --dir dist/angular-app",

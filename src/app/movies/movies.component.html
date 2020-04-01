@@ -1,9 +1,17 @@
 <div *ngIf="loading">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div class="movies">
+<div class="movies" (scroll)="refresh($event)" #moviesContainer>
+  <div class="movies__navigation">
+    <ul>
+      <li *ngFor="let list of movies; let i = index" (click)="scrollById(i)">
+        <h4>{{list.title}}</h4>
+      </li>
+    </ul>
+  </div>
   <div *ngFor="let movie of movies; let i = index;"
-       class="movies__item">
+       class="movies__item" id="movie_id_{{i}}">
+
     <div class="movies__gradient"></div>
     <div class="movies__cover"
          [ngStyle]="{
@@ -19,6 +27,9 @@
         <div class="col-xs-12 col-md-8">
           <h2>{{movie.title}}</h2>
           <p>{{movie.overview}}</p>
+          <hr>
+          <p>Vote average: {{movie.voteAverage}}</p>
+          <p>Popularity: {{movie.popularity}}</p>
         </div>
       </div>
     </div>
