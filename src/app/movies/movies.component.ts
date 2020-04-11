@@ -1,9 +1,10 @@
-import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {faArrowCircleRight} from '@fortawesome/free-solid-svg-icons';
 import {Store} from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
 import * as moviesActions from './store/movies.actions';
 import {Subscription} from 'rxjs';
-import {IMovie, IMovies, MovieItem} from './movies.model';
+import {VideoItem} from '../shared/video-item';
 
 enum Direction {
   Down,
@@ -18,7 +19,8 @@ enum Direction {
 
 export class MoviesComponent implements OnInit, OnDestroy {
   @ViewChild('moviesContainer', {static: false}) moviesContainer: any;
-  movies: IMovie[] = [];
+  faArrowCircleRight = faArrowCircleRight;
+  movies: VideoItem[] = [];
   loading = false;
   scrollTop = 0;
   scrollingActive = true;
@@ -33,7 +35,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.store.dispatch(new moviesActions.MoviesFetchItems());
     this.moviesSub = this.store.select('movies').subscribe(res => {
-      this.movies = res.results.map(movie => new MovieItem(movie));
+      this.movies = res.results.map(movie => new VideoItem(movie));
       this.loading = res.loading;
     });
   }

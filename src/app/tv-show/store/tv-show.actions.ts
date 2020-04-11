@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { TvShowModel } from '../tv-show.model';
+import {VideoItem} from '../../shared/video-item';
 
 export const TVSHOWS_FETCH_ITEMS_START = '[TV SHOW] TVSHOWS_FETCH_ITEMS';
 export const TVSHOWS_FETCH_ITEMS_SUCCESS = '[TV SHOW] TVSHOWS_FETCH_ITEMS_SUCCESS';
@@ -20,7 +20,7 @@ export class TVShowSaveItems implements Action {
   constructor(public payload: {
     page: number,
     totalPage: number,
-    results: TvShowModel[],
+    results: VideoItem[],
     totalResults: number
   }) {
   }

@@ -15,14 +15,14 @@
     <div class="movies__gradient"></div>
     <div class="movies__cover"
          [ngStyle]="{
-         'background-image':'url(' + movie.getBackdropPathImage + ')',
+         'background-image':'url(' + movie.getBackDrops + ')',
          'z-index':-i
          }"
     ></div>
     <div class="movies__content">
       <div class="row">
         <div class="col-xs-12 col-md-4">
-          <img class="movies__image" src="{{movie.getPosterImage}}" alt="{{movie.title}}"/>
+          <img class="movies__image" src="{{movie.getPoster}}" alt="{{movie.title}}"/>
         </div>
         <div class="col-xs-12 col-md-8">
           <h2>{{movie.title}}</h2>
@@ -30,6 +30,11 @@
           <hr>
           <p>Vote average: {{movie.voteAverage}}</p>
           <p>Popularity: {{movie.popularity}}</p>
+
+          <a [routerLink]="[movie.id]"
+             routerLinkActive="active">
+            <fa-icon [icon]="faArrowCircleRight"></fa-icon>
+          </a>
         </div>
       </div>
     </div>

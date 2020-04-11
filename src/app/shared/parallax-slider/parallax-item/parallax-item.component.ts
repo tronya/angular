@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {faArrowCircleRight} from '@fortawesome/free-solid-svg-icons';
-import {TvShowModel} from '../../../tv-show/tv-show.model';
+import {VideoItem} from '../../video-item';
 
 @Component({
   selector: 'app-parallax-slider-item',
@@ -8,17 +8,17 @@ import {TvShowModel} from '../../../tv-show/tv-show.model';
   styleUrls: ['./parallax-item.component.css']
 })
 export class ParallaxSliderItemComponent implements OnInit {
-  @Input() slide: TvShowModel;
+  @Input() slide: VideoItem;
   @Input() slideIndex: number;
   @Input() totalSlides: number;
   @Input() nextSlideAction: boolean;
   @Input() prevSlideAction: boolean;
-  @Output() slideClick = new EventEmitter<TvShowModel>();
+  @Output() slideClick = new EventEmitter<VideoItem>();
 
   faArrowCircleRight = faArrowCircleRight;
   isLoaded = false;
 
-  clickItemHandler(item: TvShowModel) {
+  clickItemHandler(item: VideoItem) {
     this.slideClick.emit(item);
   }
 

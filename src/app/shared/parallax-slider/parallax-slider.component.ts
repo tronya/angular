@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TvShowModel} from '../../tv-show/tv-show.model';
+import {VideoItem} from '../video-item';
 
 @Component({
   selector: 'app-parallax-slider',
@@ -7,14 +7,14 @@ import {TvShowModel} from '../../tv-show/tv-show.model';
   styleUrls: ['./parallax-slider.component.css']
 })
 export class ParallaxSliderComponent implements OnInit {
-  @Input() items: TvShowModel[];
+  @Input() items: VideoItem[];
   @Input() height = 500;
 
   nextSlideAction = false;
   prevSlideAction = false;
   $sliderItems;
 
-  slideClicked(index: number, event: TvShowModel) {
+  slideClicked(index: number, event: VideoItem) {
     if (index) {
       const leftItems = this.$sliderItems.slice(0, index);
       this.$sliderItems = this.$sliderItems.slice(index);

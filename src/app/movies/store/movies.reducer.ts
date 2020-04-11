@@ -1,9 +1,9 @@
 import * as MoviesActions from './movies.actions';
-import * as TvShowsActions from '../../tv-show/store/tv-show.actions';
-import {IMovie, IMovies} from '../movies.model';
+import {IMovies} from '../movies.model';
 
 
 const initialState: IMovies = {
+  movie_detail: null,
   page: 0,
   results: [],
   total_pages: 0,
@@ -17,6 +17,7 @@ export function moviesReducer(
 
   switch (action.type) {
     case MoviesActions.MOVIES_FETCH_REQUEST:
+    case MoviesActions.MOVIES_DETAIL_REQUEST:
       return {
         ...state,
         loading: true,
@@ -26,6 +27,14 @@ export function moviesReducer(
       return {
         ...state,
         ...action.payload,
+        movie_detail: null,
+        loading: false
+      };
+
+    case MoviesActions.MOVIES_DETAIL_SAVE:
+      return {
+        ...state,
+        movie_detail: action.payload,
         loading: false
       };
     default:

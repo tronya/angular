@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IProductionCompanies} from '../tv-show-detail/tv-show-detail-model';
 import {generateImage} from '../../shared/helpers';
+import {IProductionCompanies} from '../../shared/video-item';
 
 @Component({
   selector: 'app-production-companies',

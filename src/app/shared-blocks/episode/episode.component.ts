@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {generateImage} from '../../shared/helpers';
-import {IEpisodeAir} from '../tv-show-detail/tv-show-detail-model';
+import {IEpisodeAir} from '../../shared/video-item';
 
 @Component({
   selector: 'app-episode',

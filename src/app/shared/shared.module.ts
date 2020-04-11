@@ -10,6 +10,7 @@ import { AlertComponent } from './alert/alert.component';
 import {LoggingService} from '../logging.service'
 import { PlaceholderDirective } from './placeholder/placeholder.directive';
 import {ParallaxSliderModule} from './parallax-slider/parallax-slider.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {ParallaxSliderModule} from './parallax-slider/parallax-slider.module';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ParallaxSliderModule
+    ParallaxSliderModule,
   ],
   exports: [
     LoadingSpinnerComponent,

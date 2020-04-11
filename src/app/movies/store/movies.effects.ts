@@ -6,7 +6,6 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
-import {IMovies, MoviesModel} from '../movies.model';
 
 @Injectable()
 export class MoviesEffects {
@@ -26,7 +25,21 @@ export class MoviesEffects {
             // map((res: IMovies) => new MoviesModel(res)),
             map(res => new moviesAction.MoviesSaveItems(res)),
             catchError(errorRes => {
-              console.log(errorRes);
+              return errorRes;
+            })
+          );
+      }
+    )
+  );
+
+  @Effect()
+  fetchMovieItem = this.actions$.pipe(
+    ofType(moviesAction.MOVIES_DETAIL_REQUEST),
+    switchMap((getMovieItem: moviesAction.MoviesGetDetailItem) => {
+        return this.http.get(`https://api.themoviedb.org/3/movie/${getMovieItem.payload}?api_key=` + environment.TheMovieDBKey)
+          .pipe(
+            map(res => new moviesAction.MoviesSaveDetailItem(res)),
+            catchError(errorRes => {
               return errorRes;
             })
           );

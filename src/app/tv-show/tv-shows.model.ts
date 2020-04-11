@@ -1,16 +1,16 @@
-import {TvShowModel} from './tv-show.model';
+import {VideoItem} from '../shared/video-item';
 
 interface ITvShowsGetModel {
   page: number;
   totalPage: number;
-  results: TvShowModel[];
+  results: VideoItem[];
   totalResults: number;
 }
 
 export class TvShowsModel implements ITvShowsGetModel {
   page: number;
   totalPage: number;
-  results: TvShowModel[];
+  results: VideoItem[];
   // resultsMock:[];
   totalResults: number;
   loading: boolean;
@@ -18,7 +18,7 @@ export class TvShowsModel implements ITvShowsGetModel {
   constructor(response) {
     this.page = response.page;
     // this.resultsMock = response.results;
-    this.results = response.results.map(show => new TvShowModel(show));
+    this.results = response.results.map(show => new VideoItem(show));
     this.totalPage = response.total_pages;
     this.totalResults = response.total_results;
   }

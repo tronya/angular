@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {generateImage} from '../../shared/helpers';
-import {INetworks} from '../tv-show-detail/tv-show-detail-model';
+import {INetworks} from '../../shared/video-item';
 
 @Component({
   selector: 'app-networks',

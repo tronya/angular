@@ -1,0 +1,29 @@
+<ng-container *ngIf="movieDetail as itemDetail;">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 col-xs-12">
+          <div class="banner">
+            <img class="w-100" src="{{itemDetail.getPoster}}" alt="{{itemDetail.name}}">
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-7">
+          <app-information *ngIf="itemDetail" [information]="itemDetail"></app-information>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <app-networks [networks]="itemDetail.networks"></app-networks>
+      <div class="row">
+        <div class="col-md-6">
+          <app-episode [episode]="itemDetail.lastEpisodeToAir"></app-episode>
+        </div>
+        <div class="col-md-6">
+          <app-episode [episode]="itemDetail.nextEpisodeToAir"></app-episode>
+        </div>
+      </div>
+      <app-production-companies [productionCompanies]="itemDetail.productionCompanies"></app-production-companies>
+    </div>
+  </div>
+
+</ng-container>

@@ -3,10 +3,6 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {TvShowService} from '../tv-show.service';
 import {generateImage} from '../../shared/helpers';
 import ColorThief from 'src/vibrant';
-import {TvShowsModel} from '../tv-shows.model';
-import {TvShowModel} from '../tv-show.model';
-import {map} from 'rxjs/operators';
-import {TvShowDetail} from './tv-show-detail-model';
 
 @Component({
   selector: 'app-tv-show-detail',

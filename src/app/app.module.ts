@@ -15,6 +15,7 @@ import {environment} from '../environments/environment'; // Angular CLI environm
 import * as fromApp from './store/app.reducer';
 import {TvShowEffects} from './tv-show/store/tv-show.effects';
 import {MoviesEffects} from './movies/store/movies.effects';
+import {SharedBlocksModule} from './shared-blocks/shared-blocks.module';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {MoviesEffects} from './movies/store/movies.effects';
     }),
     EffectsModule.forRoot([TvShowEffects, MoviesEffects]),
     SharedModule,
+    SharedBlocksModule,
     AppRoutingModule,
   ],
   providers: [],

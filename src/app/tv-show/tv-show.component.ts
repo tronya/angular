@@ -1,9 +1,9 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {TvShowModel} from './tv-show.model';
 import * as fromApp from '../store/app.reducer';
 import {Store} from '@ngrx/store';
 import * as TvShowActions from './store/tv-show.actions';
+import {VideoItem} from '../shared/video-item';
 
 @Component({
   selector: 'app-movies',
@@ -11,7 +11,7 @@ import * as TvShowActions from './store/tv-show.actions';
   styleUrls: ['./tv-show.component.css']
 })
 export class TvShowComponent implements OnInit, OnDestroy {
-  shows: TvShowModel[] = [];
+  shows: VideoItem[] = [];
   loading = false;
 
   private tvShowSub: Subscription;

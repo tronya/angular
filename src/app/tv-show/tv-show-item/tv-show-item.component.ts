@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {faFilm, faPoll, faFire, faGlobeAmericas, faLanguage, faArrowCircleRight} from '@fortawesome/free-solid-svg-icons';
 
-import {TvShowModel} from '../tv-show.model';
 import ColorThief from 'src/vibrant';
 import {ColorToHexPipe} from '../../shared/colorToHex.pipe';
 import {generateImage} from '../../shared/helpers';
+import {VideoItem} from '../../shared/video-item';
 
 @Component({
   selector: 'app-tv-show-item',
@@ -12,7 +12,7 @@ import {generateImage} from '../../shared/helpers';
   styleUrls: ['./tv-show-item.component.css']
 })
 export class TvShowItemComponent implements OnInit {
-  @Input() show: TvShowModel;
+  @Input() show: VideoItem;
   colorPalette = [];
   generateImage = generateImage;
 
@@ -28,7 +28,7 @@ export class TvShowItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getImageColors(this.show.posterImage, 3);
+    this.getImageColors(this.show.posterPath, 3);
   }
 
   getImageColors(src: string, count: number = 5) {
