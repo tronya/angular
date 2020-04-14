@@ -4,6 +4,7 @@ import * as fromApp from '../store/app.reducer';
 import {Store} from '@ngrx/store';
 import * as TvShowActions from './store/tv-show.actions';
 import {VideoItem} from '../shared/video-item';
+import {map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movies',
@@ -19,6 +20,10 @@ export class TvShowComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<fromApp.AppState>,
   ) {
+  }
+
+  switchSource(source: string) {
+    this.store.dispatch(new TvShowActions.TVShowFetchItems(source));
   }
 
   ngOnInit() {

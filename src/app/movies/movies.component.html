@@ -1,40 +1,49 @@
 <div *ngIf="loading">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div class="movies" (scroll)="refresh($event)" #moviesContainer>
-  <div class="movies__navigation">
-    <ul>
-      <li *ngFor="let list of movies; let i = index" (click)="scrollById(i)">
-        <h4>{{list.title}}</h4>
-      </li>
-    </ul>
-  </div>
-  <div *ngFor="let movie of movies; let i = index;"
-       class="movies__item" id="movie_id_{{i}}">
+<div class="movies">
+  <div class="container-fluid">
 
-    <div class="movies__gradient"></div>
-    <div class="movies__cover"
-         [ngStyle]="{
-         'background-image':'url(' + movie.getBackDrops + ')',
-         'z-index':-i
-         }"
-    ></div>
-    <div class="movies__content">
+    <div *ngIf="previousActiveItem" [ngClass]="{'backDrops-cover':true,'animationActivated':animationActivated}">
+      <img src="{{previousActiveItem.getBackDrops}}" alt="" class="image"/>
+    </div>
+
+    <div class="cover" *ngIf="activeItem"
+         [ngStyle]=activeItemParameters>
+      <img src="{{activeItem.getBackDrops}}" alt="" class="image"/>
+    </div>
+
+    <div class="main-content">
       <div class="row">
-        <div class="col-xs-12 col-md-4">
-          <img class="movies__image" src="{{movie.getPoster}}" alt="{{movie.title}}"/>
+        <div class="col-xs-12 col-md-5">
+          <div class="content" *ngIf="activeItem">
+            <div class="overflow">
+              <p class="title" [@appearingText]>{{activeItem.title}}</p>
+            </div>
+            <div class="overflow">
+              <p class="description" [@appearingTextDelay]>{{activeItem.overview}}</p>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-12 col-md-8">
-          <h2>{{movie.title}}</h2>
-          <p>{{movie.overview}}</p>
-          <hr>
-          <p>Vote average: {{movie.voteAverage}}</p>
-          <p>Popularity: {{movie.popularity}}</p>
-
-          <a [routerLink]="[movie.id]"
-             routerLinkActive="active">
-            <fa-icon [icon]="faArrowCircleRight"></fa-icon>
-          </a>
+        <div class="col-xs-12 col-md-7">
+          <div class="slider-wrapper">
+            <div class="slider">
+              <div *ngFor="let movie of movies; let i = index;"
+                   class="slide"
+                   [ngStyle]="{
+                  transform : 'translate('+15 * i+'rem, 0)',
+                  transitionDelay: .2*i+'s'
+                 }"
+                   (click)="activeElementClick(movie,$event)"
+              >
+                <img
+                  src="{{movie.getBackDrops}}"
+                  alt=""
+                  #movieChild
+                  class="image">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

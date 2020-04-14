@@ -28,10 +28,11 @@ export class TvShowItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getImageColors(this.show.posterPath, 3);
+    this.getImageColors(generateImage(this.show.posterPath), 3);
   }
 
-  getImageColors(src: string, count: number = 5) {
+  getImageColors(src: string, count: number = 3) {
+    console.log(src);
 
     const colorThief = new ColorThief();
     const img = new Image();

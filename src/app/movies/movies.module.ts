@@ -10,7 +10,7 @@ import {SharedBlocksModule} from '../shared-blocks/shared-blocks.module';
   imports: [
     SharedModule,
     SharedBlocksModule,
-    MoviesRouterModule
+    MoviesRouterModule,
   ]
 })
 

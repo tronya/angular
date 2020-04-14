@@ -4,6 +4,14 @@
 
 <div *ngIf="shows.length != 0" class="tvShow-wrapper">
   <div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary" (click)="switchSource('popular')">Popular</button>
+      <button type="button" class="btn btn-secondary" (click)="switchSource('airing_today')">Airing Today</button>
+      <button type="button" class="btn btn-secondary" (click)="switchSource('on_the_air')">On Air</button>
+      <button type="button" class="btn btn-secondary" (click)="switchSource('top_rated')">Top Rated</button>
+<!--      <button type="button" class="btn btn-secondary" (click)="switchSource('latest')">Latest</button>-->
+    </div>
+
     <h2>Last Seasons</h2>
     <app-parallax-slider [items]=shows [height]="500"></app-parallax-slider>
   </div>
@@ -17,6 +25,7 @@
         class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
         *ngFor="let show of shows; let i = index"
         [show]=show>
+        f
       </app-tv-show-item>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Action } from '@ngrx/store';
+import {Action} from '@ngrx/store';
 import {VideoItem} from '../../shared/video-item';
 
 export const TVSHOWS_FETCH_ITEMS_START = '[TV SHOW] TVSHOWS_FETCH_ITEMS';
@@ -12,6 +12,9 @@ export const TVSHOW_LOADING = '[TV SHOW] TVSHOW_LOADING';
 
 export class TVShowFetchItems implements Action {
   readonly type = TVSHOWS_FETCH_ITEMS_START;
+
+  constructor(public payload: string = 'popular') {
+  }
 }
 
 export class TVShowSaveItems implements Action {
@@ -29,7 +32,8 @@ export class TVShowSaveItems implements Action {
 export class TVShowErrorItems implements Action {
   readonly type = TVSHOWS_FETCH_ITEMS_ERROR;
 
-  constructor(public payload: string) { }
+  constructor(public payload: string) {
+  }
 }
 
 export class GetTvShowDetail implements Action {

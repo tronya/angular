@@ -16,6 +16,7 @@ import * as fromApp from './store/app.reducer';
 import {TvShowEffects} from './tv-show/store/tv-show.effects';
 import {MoviesEffects} from './movies/store/movies.effects';
 import {SharedBlocksModule} from './shared-blocks/shared-blocks.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {SharedBlocksModule} from './shared-blocks/shared-blocks.module';
     SharedModule,
     SharedBlocksModule,
     AppRoutingModule,
+    // BrowserAnimationsModule TODO: fix this
   ],
   providers: [],
   bootstrap: [AppComponent]

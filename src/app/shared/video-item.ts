@@ -134,6 +134,7 @@ export class VideoItem implements IVideoItem {
     this.lastAirDate = tvShowDetail.last_air_date;
     this.lastEpisodeToAir = tvShowDetail.last_episode_to_air;
     this.name = tvShowDetail.name;
+    this.title = tvShowDetail.title;
     this.networks = tvShowDetail.networks;
     this.nextEpisodeToAir = tvShowDetail.next_episode_to_air;
     this.numberOfEpisodes = tvShowDetail.number_of_episodes;

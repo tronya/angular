@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChange} from '@angular/core';
 import {VideoItem} from '../video-item';
 
 @Component({
@@ -6,7 +6,7 @@ import {VideoItem} from '../video-item';
   templateUrl: './parallax-slider.component.html',
   styleUrls: ['./parallax-slider.component.css']
 })
-export class ParallaxSliderComponent implements OnInit {
+export class ParallaxSliderComponent implements OnInit, OnChanges {
   @Input() items: VideoItem[];
   @Input() height = 500;
 
@@ -53,6 +53,12 @@ export class ParallaxSliderComponent implements OnInit {
 
   ngOnInit() {
     this.$sliderItems = this.items;
+  }
+
+  ngOnChanges(changes) {
+    if (changes.hasOwnProperty('items')) {
+      this.$sliderItems = changes.items.currentValue;
+    }
   }
 
 }
