@@ -17,6 +17,7 @@ import {TvShowEffects} from './tv-show/store/tv-show.effects';
 import {MoviesEffects} from './movies/store/movies.effects';
 import {SharedBlocksModule} from './shared-blocks/shared-blocks.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SharedModule,
     SharedBlocksModule,
     AppRoutingModule,
-    // BrowserAnimationsModule TODO: fix this
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

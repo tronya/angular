@@ -58,39 +58,7 @@ export interface ISeasons {
   nextEpisodeToAir: { air_date: string };
 }
 
-export interface IVideoItem {
-  backdropPath: string;
-  createdBy: ICreatedBy;
-  episodeRunTime: number[];
-  firstAirDate: string;
-  genres: IGenres[];
-  homepage: string;
-  id: number | null;
-  inProduction: boolean;
-  languages: string[];
-  lastAirDate: string;
-  lastEpisodeToAir: IEpisodeAir;
-  name: string;
-  title: string;
-  networks: INetworks[];
-  nextEpisodeToAir: IEpisodeAir;
-  numberOfEpisodes: number;
-  numberOfSeasons: number;
-  originCountry: string[];
-  originalLanguage: string;
-  originalName: string;
-  overview: string;
-  popularity: number;
-  posterPath: string;
-  productionCompanies: IProductionCompanies[];
-  seasons: ISeasons;
-  status: string;
-  type: string;
-  voteAverage: number;
-  voteCount: number;
-}
-
-export class VideoItem implements IVideoItem {
+export class VideoItem  {
   backdropPath: string;
   createdBy: ICreatedBy;
   episodeRunTime: number[];

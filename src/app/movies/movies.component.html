@@ -1,7 +1,7 @@
 <div *ngIf="loading">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div class="movies">
+<div class="movies" *ngIf="movies">
   <div class="container-fluid">
 
     <div *ngIf="previousActiveItem" [ngClass]="{'backDrops-cover':true,'animationActivated':animationActivated}">
@@ -14,8 +14,8 @@
     </div>
 
     <div class="main-content">
-      <div class="row">
-        <div class="col-xs-12 col-md-5">
+      <div class="row flex-grow-1">
+        <div class="col-xs-12 col-md-5 align-self-center">
           <div class="content" *ngIf="activeItem">
             <div class="overflow">
               <p class="title" [@appearingText]>{{activeItem.title}}</p>
@@ -25,21 +25,22 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-7">
+        <div class="col-xs-12 col-md-7 align-self-end">
           <div class="slider-wrapper">
             <div class="slider">
-              <div *ngFor="let movie of movies; let i = index;"
-                   class="slide"
-                   [ngStyle]="{
+              <div
+                *ngFor="let movie of movies; let i = index;"
+                class="slide"
+                [ngStyle]="{
                   transform : 'translate('+15 * i+'rem, 0)',
-                  transitionDelay: .2*i+'s'
+                  transitionDelay: .2*i+'s',
+                  transition: (i + .5) +'s'
                  }"
-                   (click)="activeElementClick(movie,$event)"
+                (click)="activeElementClick($event)"
               >
                 <img
                   src="{{movie.getBackDrops}}"
                   alt=""
-                  #movieChild
                   class="image">
               </div>
             </div>

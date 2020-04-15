@@ -1,4 +1,9 @@
-import {AfterContentInit, AfterViewInit, Component, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
 import * as moviesActions from './store/movies.actions';
@@ -25,7 +30,7 @@ interface Parameters {
       ),
       transition('void <=> *', [
         style({transform: 'translateY(100%)'}),
-        animate('300ms 300ms')
+        animate('300ms 1s')
       ])
     ]),
     trigger('appearingTextDelay', [
@@ -41,11 +46,9 @@ interface Parameters {
   ]
 })
 
-export class MoviesComponent implements OnInit, OnDestroy, AfterContentInit {
+export class MoviesComponent implements OnInit, OnDestroy, AfterViewInit {
   movies: VideoItem[] = [];
   loading = false;
-
-  @ViewChildren('movieChild') children;
 
   public activeItem: VideoItem;
   public previousActiveItem: VideoItem;
@@ -63,16 +66,30 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterContentInit {
   ngOnInit() {
     this.store.dispatch(new moviesActions.MoviesFetchItems());
     this.moviesSub = this.store.select('movies').subscribe(res => {
-      this.movies = res.results.map(movie => new VideoItem(movie));
-      this.loading = res.loading;
+      if (res.results.length) {
+        this.movies = res.results.map(movie => new VideoItem(movie));
+        this.loading = res.loading;
+        this.startLooping();
+      }
     });
   }
 
-  ngAfterContentInit(): void {
-    console.log(this.children);
+  startLooping() {
+    this.activeElementClick({
+      target: {
+        width: 0,
+        height: '100%',
+        left: 0,
+        top: 0
+      }
+    });
   }
 
-  activeElementClick(movieItem: VideoItem, event: any) {
+  ngAfterViewInit(): void {
+
+  }
+
+  activeElementClick(event: any) {
     this.activeItem = null;
     this.animationActivated = true;
 
@@ -84,7 +101,7 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterContentInit {
         top: event.target.y + 'px',
       };
 
-      this.activeItem = movieItem;
+      this.activeItem = this.movies[0];
 
       setTimeout(() => {
         this.activeItemParameters = {
@@ -97,10 +114,12 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterContentInit {
 
         setTimeout(() => {
           this.animationActivated = false;
-          this.previousActiveItem = movieItem;
+          this.previousActiveItem = this.activeItem;
           this.movies.push(removedItem);
         }, 300);
+
       }, 300);
+
     }, 300);
   }
 
