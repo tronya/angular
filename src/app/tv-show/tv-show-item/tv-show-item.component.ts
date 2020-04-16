@@ -32,7 +32,6 @@ export class TvShowItemComponent implements OnInit {
   }
 
   getImageColors(src: string, count: number = 3) {
-    console.log(src);
 
     const colorThief = new ColorThief();
     const img = new Image();
