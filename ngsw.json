@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1587036527166,
+  "timestamp": 1587568201446,
   "index": "https://tronya.github.io/angular/index.html",
   "assetGroups": [
     {
@@ -8,16 +8,16 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "https://tronya.github.io/angular/6.6ffdcb92386adde47a6a.js",
-        "https://tronya.github.io/angular/7.cbfe66f4b973fcd1d48d.js",
-        "https://tronya.github.io/angular/common.2c88de1eca772a141973.js",
+        "https://tronya.github.io/angular/6.d0c79becc35b3f946ffe.js",
+        "https://tronya.github.io/angular/7.7cf22c5840932da62c39.js",
+        "https://tronya.github.io/angular/common.a6d1d8ddd8c7947be41b.js",
         "https://tronya.github.io/angular/favicon.ico",
         "https://tronya.github.io/angular/index.html",
-        "https://tronya.github.io/angular/main.b900697b327a8d479b4f.js",
+        "https://tronya.github.io/angular/main.6bedc8a968ffd9b806df.js",
         "https://tronya.github.io/angular/manifest.webmanifest",
         "https://tronya.github.io/angular/polyfills-es5.cee3c1b60bf118db6c8b.js",
         "https://tronya.github.io/angular/polyfills.34c5fa6f6b525648ef96.js",
-        "https://tronya.github.io/angular/runtime.60a378ee7727cc77a0fe.js",
+        "https://tronya.github.io/angular/runtime.2e580e52aadc53882b97.js",
         "https://tronya.github.io/angular/styles.493603e10986606d2dcc.css"
       ],
       "patterns": []
@@ -56,8 +56,8 @@
     }
   ],
   "hashTable": {
-    "https://tronya.github.io/angular/6.6ffdcb92386adde47a6a.js": "958ed68e1075b315a988b32db612d949f2fec2dd",
-    "https://tronya.github.io/angular/7.cbfe66f4b973fcd1d48d.js": "f273a272c6e08308a9682578087c1ceadcdf3409",
+    "https://tronya.github.io/angular/6.d0c79becc35b3f946ffe.js": "f0ad3d99eaac0367f7d81474dc249a18a3b43281",
+    "https://tronya.github.io/angular/7.7cf22c5840932da62c39.js": "4263d3984f4c5cd11050c49e3c3062caab2a2e17",
     "https://tronya.github.io/angular/assets/border.svg": "bc4d0d6ebef1a474252e59fbd29ec1cbd968f661",
     "https://tronya.github.io/angular/assets/headings.scss": "c5f7c7466275023b2aeddf872a8a399c6ea0963c",
     "https://tronya.github.io/angular/assets/icons/icon-128x128.png": "8de9825f1d972a43df7c02bf2ce21f248230a93c",
@@ -69,14 +69,14 @@
     "https://tronya.github.io/angular/assets/icons/icon-72x72.png": "ac697e5e9c8d3a77e805b7c8ccaf0a7584b46aa8",
     "https://tronya.github.io/angular/assets/icons/icon-96x96.png": "12fff2410a6e385bf6701d86f25662536b927325",
     "https://tronya.github.io/angular/assets/placeholder.gif": "1a479c3b0c3d206d1140145cac41e865285916e3",
-    "https://tronya.github.io/angular/common.2c88de1eca772a141973.js": "07dcf6ea0e320ab8fecc229931efb6142f68e456",
+    "https://tronya.github.io/angular/common.a6d1d8ddd8c7947be41b.js": "2fc173a07081fee082c38b5a83eda5a42dca7440",
     "https://tronya.github.io/angular/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://tronya.github.io/angular/index.html": "4c76bf2fa22d6d7196a3dfe0bccb3e0903f4fa2a",
-    "https://tronya.github.io/angular/main.b900697b327a8d479b4f.js": "a192a497805c579b1d7e0cd9ec88e12f2167668c",
+    "https://tronya.github.io/angular/index.html": "a961c6943fd913b7c4947fb5e91d690151f401ec",
+    "https://tronya.github.io/angular/main.6bedc8a968ffd9b806df.js": "483f441d748a331cccbf03dc8111b341e5d582d7",
     "https://tronya.github.io/angular/manifest.webmanifest": "bd6beb5a3caa036b20f57a539ae50de9b05f67c5",
     "https://tronya.github.io/angular/polyfills-es5.cee3c1b60bf118db6c8b.js": "ea5a8e5c1ab93cd7ab779dad31cbb6b621a3b76e",
     "https://tronya.github.io/angular/polyfills.34c5fa6f6b525648ef96.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "https://tronya.github.io/angular/runtime.60a378ee7727cc77a0fe.js": "98f7af754c01854461732b06f39466d1c7469895",
+    "https://tronya.github.io/angular/runtime.2e580e52aadc53882b97.js": "156e82ad99d81e674cd6670eed555a3ebba6533f",
     "https://tronya.github.io/angular/styles.493603e10986606d2dcc.css": "0a6a6a1272a950f0d77b19f2355277327e0e428b"
   },
   "navigationUrls": [
