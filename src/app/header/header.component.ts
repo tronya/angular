@@ -8,6 +8,10 @@ import {Component} from '@angular/core';
 export class HeaderComponent {
   navbarOpen = false;
 
+  closeModal() {
+    this.navbarOpen = false;
+  }
+
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }

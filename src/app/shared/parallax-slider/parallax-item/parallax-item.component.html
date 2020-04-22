@@ -6,14 +6,15 @@
        'first-item-active': slideIndex === 0 && nextSlideAction
         }"
        [ngStyle]="{
-     visibility: isLoaded ?  'visible' : 'hidden',
+      visibility: isLoaded ?  'visible' : 'hidden',
       transform : 'translate('+ slideIndex * slideIndex  + 'rem, '+ 15 * -slideIndex + 'px) scale(' + (1 - slideIndex/25) + ')'
       }"
+       [@appearingImage]="isLoaded"
   >
     <div class="slide-image">
-      <img src="./assets/placeholder.gif" [ngClass]="{'is-hidden':isLoaded, 'image-placeholder':true}">
       <img alt="{{slide.name}}" src="{{slide.getPoster}}" (load)="imageLoaded()" [ngClass]="{'is-loaded':isLoaded}"/>
     </div>
+    <div class="slide-shadow" [style.backgroundImage]="'url('+slide.getPoster+')'"></div>
     <a [routerLink]="[slide.id]"
        class="action-icon"
        routerLinkActive="active">

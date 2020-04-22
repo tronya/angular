@@ -1,11 +1,24 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {faArrowCircleRight} from '@fortawesome/free-solid-svg-icons';
 import {VideoItem} from '../../video-item';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-parallax-slider-item',
   templateUrl: './parallax-item.component.html',
-  styleUrls: ['./parallax-item.component.css']
+  styleUrls: ['./parallax-item.component.scss'],
+  animations: [
+    trigger('appearingImage', [
+      state('in', style({
+          transform: 'translateY(0px)'
+        })
+      ),
+      transition('void <=> *', [
+        style({transform: 'translateY(100px)'}),
+        animate('300ms')
+      ])
+    ]),
+  ]
 })
 export class ParallaxSliderItemComponent implements OnInit {
   @Input() slide: VideoItem;

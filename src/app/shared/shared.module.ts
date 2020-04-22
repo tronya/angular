@@ -6,25 +6,28 @@ import {DropdownDirective} from './dropdown.directive';
 import {ColorToHexPipe} from './colorToHex.pipe';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { AlertComponent } from './alert/alert.component';
-import {LoggingService} from '../logging.service'
-import { PlaceholderDirective } from './placeholder/placeholder.directive';
+import {AlertComponent} from './alert/alert.component';
+import {LoggingService} from '../logging.service';
+import {PlaceholderDirective} from './placeholder/placeholder.directive';
 import {ParallaxSliderModule} from './parallax-slider/parallax-slider.module';
+import {HeaderComponent} from '../header/header.component';
 import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
     LoadingSpinnerComponent,
-     DropdownDirective,
-      ColorToHexPipe,
-       AlertComponent,
-       PlaceholderDirective
-      ],
+    DropdownDirective,
+    ColorToHexPipe,
+    AlertComponent,
+    PlaceholderDirective,
+    HeaderComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     ParallaxSliderModule,
+    RouterModule
   ],
   exports: [
     LoadingSpinnerComponent,
@@ -36,7 +39,8 @@ import {RouterModule} from '@angular/router';
     FontAwesomeModule,
     AlertComponent,
     PlaceholderDirective,
-    ParallaxSliderModule
+    ParallaxSliderModule,
+    HeaderComponent
   ],
   entryComponents: [AlertComponent],
   providers: [LoggingService]

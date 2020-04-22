@@ -1,41 +1,50 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import * as fromApp from '../store/app.reducer';
-import {Store} from '@ngrx/store';
-import * as TvShowActions from './store/tv-show.actions';
 import {VideoItem} from '../shared/video-item';
-import {map, switchMap} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
+import {TvShowsModel} from './tv-shows.model';
+import {handleError} from './store/tv-show.effects';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-movies',
   templateUrl: './tv-show.component.html',
   styleUrls: ['./tv-show.component.css']
 })
-export class TvShowComponent implements OnInit, OnDestroy {
-  shows: VideoItem[] = [];
+export class TvShowComponent implements OnInit {
+  shows: TvShowsModel;
+  results: VideoItem[] = [];
   loading = false;
 
   private tvShowSub: Subscription;
 
   constructor(
-    private store: Store<fromApp.AppState>,
+    private http: HttpClient
   ) {
   }
 
-  switchSource(source: string) {
-    this.store.dispatch(new TvShowActions.TVShowFetchItems(source));
+  private switchSource(param: string) {
+    this.getTvShows(param);
   }
 
-  ngOnInit() {
-    this.store.dispatch(new TvShowActions.TVShowFetchItems());
-    this.tvShowSub = this.store.select('tvShow').subscribe(res => {
-      this.shows = res.results;
-      this.loading = res.loading;
+  private getTvShows(payload: string = 'popular'): void {
+    this.loading = true;
+    this.http.get(`https://api.themoviedb.org/3/tv/${payload}?count=2&api_key=${environment.TheMovieDBKey}`)
+      .pipe(
+        map(res => new TvShowsModel(res)),
+        catchError(errorRes => {
+          return handleError(errorRes);
+        })
+      ).subscribe((res: TvShowsModel) => {
+      this.loading = false;
+      this.shows = res;
+      this.results = res.results;
     });
   }
 
-  ngOnDestroy() {
-    this.tvShowSub.unsubscribe();
+  ngOnInit() {
+    this.getTvShows();
   }
 
 }
