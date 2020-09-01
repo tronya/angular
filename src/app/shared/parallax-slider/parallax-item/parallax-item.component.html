@@ -6,10 +6,8 @@
        'first-item-active': slideIndex === 0 && nextSlideAction
         }"
        [ngStyle]="{
-      visibility: isLoaded ?  'visible' : 'hidden',
-      transform : 'translate('+ slideIndex * slideIndex  + 'rem, '+ 15 * -slideIndex + 'px) scale(' + (1 - slideIndex/25) + ')'
+        transform : 'translate('+ slideIndex * slideIndex  + 'rem, '+ 15 * -slideIndex + 'px) scale(' + (1 - slideIndex/25) + ')'
       }"
-       [@appearingImage]="isLoaded"
   >
     <div class="slide-image">
       <img alt="{{slide.name}}" src="{{slide.getPoster}}" (load)="imageLoaded()" [ngClass]="{'is-loaded':isLoaded}"/>

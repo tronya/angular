@@ -1,11 +1,8 @@
 .slide-item {
   // overflow: hidden;
-  border-radius: 2rem;
-  box-shadow: 15px 15px 40px #111;
   transform: translate(0, 0) scale(1) rotateY(0);
   transition: .9s;
   height: 100%;
-  background: black;
   perspective: 600px;
 }
 
@@ -14,10 +11,10 @@
   top: 110%;
   height: 3rem;
   width: 100%;
-  transform: rotate(180deg) rotateX( -45deg ) scaleX(-1);
+  transform: rotate(180deg) rotateX(-45deg) scaleX(-1);
   background-position: bottom;
   background-size: cover;
-  opacity: 0.6;
+  opacity: 0.3;
   filter: blur(2rem);
 
   img {
@@ -39,6 +36,10 @@
 
 .slide-image {
   height: 100%;
+  border-radius: 2rem;
+  box-shadow: 15px 15px 40px #111;
+  overflow: hidden;
+  background-color: black;
 }
 
 .slide-image img {

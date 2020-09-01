@@ -1,0 +1,21 @@
+<div *ngIf="loading && results.length === 0">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div class="tvShow-wrapper">
+  <div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary" (click)="switchSource('popular')">Popular</button>
+      <button type="button" class="btn btn-secondary" (click)="switchSource('airing_today')">Airing Today</button>
+      <button type="button" class="btn btn-secondary" (click)="switchSource('on_the_air')">On Air</button>
+      <button type="button" class="btn btn-secondary" (click)="switchSource('top_rated')">Top Rated</button>
+    </div>
+    <div *ngIf="results.length != 0; else elseBlock">
+      <app-parallax-slider [items]=results [height]="500"></app-parallax-slider>
+    </div>
+    <ng-template #elseBlock>
+      <app-loading-spinner></app-loading-spinner>
+    </ng-template>
+
+  </div>
+</div>

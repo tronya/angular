@@ -10,11 +10,11 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   animations: [
     trigger('appearingImage', [
       state('in', style({
-          transform: 'translateY(0px)'
+          opacity: 0
         })
       ),
       transition('void <=> *', [
-        style({transform: 'translateY(100px)'}),
+        style({opacity: 1}),
         animate('300ms')
       ])
     ]),

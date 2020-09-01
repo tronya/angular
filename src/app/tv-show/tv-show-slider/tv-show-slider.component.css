@@ -1,0 +1,9 @@
+.tvShow-wrapper {
+  background: radial-gradient(circle at 15% 15%, #232627, #333235);
+  padding: 5rem 0 1rem;
+  overflow: hidden;
+}
+
+h2 {
+  color: white;
+}
