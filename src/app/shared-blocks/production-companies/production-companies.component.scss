@@ -1,0 +1,36 @@
+.production {
+  background: radial-gradient(circle at 15% 15%, #fff, #333);
+  padding: 2rem;
+
+  &--wrapper {
+    display: flex;
+  }
+
+  &--title {
+    height: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bolder;
+    line-height: 1;
+  }
+
+  &--item {
+    width: 10rem;
+    padding: 1rem;
+    margin: 0;
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--image {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    img {
+      max-height: 100px;
+      max-width: 100%;
+    }
+  }
+}

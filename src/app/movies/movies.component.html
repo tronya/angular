@@ -42,9 +42,13 @@
                   src="{{movie.getBackDrops}}"
                   alt=""
                   class="image">
+                <a [routerLink]="[movie.id]"
+                   routerLinkActive="active">detail
+                </a>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
