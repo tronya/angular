@@ -9,7 +9,7 @@ import {SeasonModel} from '../../models/season.model';
 @Component({
   selector: 'app-tv-show-seasons',
   templateUrl: './tv-show-seasons.component.html',
-  styleUrls: ['./tv-show-seasons.component.css']
+  styleUrls: ['./tv-show-seasons.component.scss']
 })
 export class TvShowSeasonsComponent implements OnInit {
   public season$: SeasonModel;

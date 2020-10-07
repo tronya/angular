@@ -1,15 +1,21 @@
+<hr>
 <div class="episode" *ngIf="episode">
-  <h4 class="section--title">Latest episode</h4>
-  <hr>
-  <h3 class="title">{{episode.name}}</h3>
-  <p><span>Air date:</span> {{episode.air_date | date}}</p>
-  <p><span>Episode number:</span> {{episode.episode_number}}</p>
-  <p><span>Overview:</span> {{episode.overview}}</p>
-  <p><span>Production code:</span> {{episode.production_code}}</p>
-  <p><span>Season number:</span> {{episode.season_number}}</p>
-  <p><span>Show id:</span> {{episode.show_id}}</p>
-  <img *ngIf="episode.still_path" class="image" src="{{generateImage(episode.still_path,'w500')}}" alt="{{episode.name}}">
-  <p><span>Vote average:</span> {{episode.vote_average}}</p>
-  <p><span>Vote count:</span> {{episode.vote_count}}</p>
-  <hr>
+  <div class="episode__wrapper">
+    <div class="episode__image">
+      <img *ngIf="episode.stillPath" class="image" src="{{episode.getPoster}}" alt="{{episode.name}}">
+    </div>
+    <div class="episode__content">
+      <h3 class="title">{{episode.name}}</h3>
+      <p><span>Air date:</span> {{episode.airDate | date}}</p>
+      <p><span>Episode number:</span> {{episode.episodeNumber}}</p>
+      <p><span>Overview:</span> {{episode.overview}}</p>
+      <p><span>Production code:</span> {{episode.productionCode}}</p>
+      <p><span>Season number:</span> {{episode.seasonNumber}}</p>
+      <p><span>Vote average:</span> {{episode.voteAverage}}</p>
+      <p><span>Vote count:</span> {{episode.voteCount}}</p>
+    </div>
+  </div>
+  <app-crew [crew]="episode.crew"></app-crew>
+  <app-guests-stars [guestStars]="episode.guestStars"></app-guests-stars>
 </div>
+<hr>

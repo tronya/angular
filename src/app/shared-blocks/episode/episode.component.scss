@@ -1,6 +1,31 @@
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+@import "./node_modules/bootstrap/scss/mixins";
+
+hr {
+  background: #333235;
+}
+
 .episode {
   padding: 1rem;
-  background: black;
+
+  &__wrapper {
+    background: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include media-breakpoint-up(sm) {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    padding: 1rem;
+  }
+
+  &__content {
+    padding: 1rem;
+  }
 
   p {
     color: white;
@@ -16,6 +41,11 @@
 
   .image {
     width: 100%;
+    min-width: auto;
+
+    @include media-breakpoint-up(sm) {
+      min-width: 40rem;
+    }
   }
 }
 

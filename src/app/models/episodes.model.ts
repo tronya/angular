@@ -1,3 +1,5 @@
+import {generateImage} from '../shared/helpers';
+
 export interface ICrew {
   id: number;
   credit_id: string;
@@ -16,7 +18,7 @@ export interface GuestStars {
   profile_path: string;
 }
 
-export class EpisodesModel {
+export class EpisodeModel {
   airDate: string;
   crew: ICrew[];
   episodeNumber: number;
@@ -43,5 +45,9 @@ export class EpisodesModel {
     this.stillPath = episode.still_path;
     this.voteAverage = episode.vote_average;
     this.voteCount = episode.vote_count;
+  }
+
+  get getPoster() {
+    return generateImage(this.stillPath);
   }
 }

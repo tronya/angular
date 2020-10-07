@@ -1,0 +1,19 @@
+<ng-container *ngIf="crew">
+  <div class="crew">
+    <h3>Crew</h3>
+    <div class="crew__wrapper">
+      <div *ngFor="let crewItem of crew">
+        <div class="crew__item">
+          <img class="image" *ngIf="crewItem.profile_path" src="{{getImage(crewItem.profile_path)}}"
+               alt="{{crewItem.name}}"/>
+          <img class="image" *ngIf="!crewItem.profile_path" src="assets/no-user.png"
+               alt="{{crewItem.name}}"/>
+
+          <p><span>Department: </span>{{crewItem.department}}</p>
+          <p><span>Job: </span>{{crewItem.job}}</p>
+          <p><span>Name: </span>{{crewItem.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

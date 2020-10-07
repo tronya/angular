@@ -5,7 +5,9 @@
         <div class="tv-show-banner">
           <img src="{{tvShowDetail.getPoster}}" alt="{{tvShowDetail.name}}">
         </div>
-        <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
+        <div class="tv-show-information">
+          <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
+        </div>
       </div>
       <div class="tv-show__content container-fluid">
         <app-networks [networks]="tvShowDetail.networks"></app-networks>

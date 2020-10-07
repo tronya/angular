@@ -6,6 +6,8 @@ import {NetworksComponent} from './networks/networks.component';
 import {ProductionCompaniesComponent} from './production-companies/production-companies.component';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import { CrewComponent } from './crew/crew.component';
+import { GuestsStarsComponent } from './guests-stars/guests-stars.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import {RouterModule} from '@angular/router';
     EpisodeComponent,
     InformationComponent,
     NetworksComponent,
-    ProductionCompaniesComponent
+    ProductionCompaniesComponent,
+    CrewComponent,
+    GuestsStarsComponent,
   ],
   imports: [
     CommonModule,

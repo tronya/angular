@@ -1,22 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {generateImage} from '../../shared/helpers';
-import {IEpisodeAir} from '../../shared/video-item';
+import {Component, Input} from '@angular/core';
+import {EpisodeModel} from '../../models/episodes.model';
 
 @Component({
   selector: 'app-episode',
   templateUrl: './episode.component.html',
-  styleUrls: ['./episode.component.scss', '../../../assets/headings.scss']
+  styleUrls: [
+    './episode.component.scss',
+    '../../../assets/headings.scss'
+  ]
 })
 
-export class EpisodeComponent implements OnInit {
-  generateImage = generateImage;
-
-  @Input() episode: IEpisodeAir;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+export class EpisodeComponent {
+  @Input() episode: EpisodeModel;
 }

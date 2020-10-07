@@ -20,15 +20,14 @@
       width: 100%;
     }
   }
+
+  &-information {
+    flex-grow: 1;
+  }
 }
 
 .tv-show-banner {
   min-width: auto;
-  width: 100%;
-
-  @include media-breakpoint-up(sm) {
-    min-width: 30rem;
-  }
 
   img {
     padding: 1rem;

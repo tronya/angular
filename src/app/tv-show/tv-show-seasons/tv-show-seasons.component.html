@@ -1,3 +1,14 @@
 <ng-container *ngIf="season$ as season">
-  <p>{{season.overview}}</p>
+  <div class="season">
+    <div class="season__info">
+      <p>Review: <span>{{season.overview}}</span></p>
+      <p>Title: <span>{{season.name}}</span></p>
+      <p>Season: <span>{{season.seasonNumber}}</span></p>
+      <img src="{{season.getPoster}}" alt="{{season.name}}">
+    </div>
+    <ng-container *ngFor="let episode of season.episodes">
+      <app-episode [episode]="episode"></app-episode>
+    </ng-container>
+
+  </div>
 </ng-container>
