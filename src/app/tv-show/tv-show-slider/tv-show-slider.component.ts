@@ -28,7 +28,7 @@ export class TvShowSliderComponent implements OnInit {
 
   private getTvShows(payload: string = 'popular'): void {
     this.loading = true;
-    this.http.get(`https://api.themoviedb.org/3/tv/${payload}?count=2&api_key=${environment.TheMovieDBKey}`)
+    this.http.get(`https://api.themoviedb.org/3/tv/${payload}?count=2`)
       .pipe(
         map(res => new TvShowsModel(res)),
         catchError(errorRes => {

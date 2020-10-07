@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {TvShowService} from '../tv-show.service';
-import {generateImage} from '../../shared/helpers';
-import ColorThief from 'src/vibrant';
+import {ActivatedRoute} from '@angular/router';
+import * as fromApp from '../../store/app.reducer';
+import * as tvShowsActions from '../store/tv-show.actions';
+import {Store} from '@ngrx/store';
+import {TvShowsModel} from '../tv-shows.model';
+import {VideoItem} from '../../shared/video-item';
 
 @Component({
   selector: 'app-tv-show-detail',
@@ -10,31 +12,24 @@ import ColorThief from 'src/vibrant';
   styleUrls: ['./tv-show-detail.component.scss']
 })
 export class TvShowDetailComponent implements OnInit {
-  generateImage = generateImage;
-  colorPalette = [];
-  routeId = this.route.snapshot.paramMap.get('id');
-  tvShowDetail$ = this.tvShow.getTvShowDetail(+this.routeId);
+  public tvShowDetails$?: VideoItem = null;
+  public loading$: boolean = false;
+  public routeId = this.route.snapshot.paramMap.get('id');
 
 
-  constructor(private route: ActivatedRoute, private tvShow: TvShowService) {
-  }
-
-  getImageColors(src: string, count: number = 5) {
-
-    const colorThief = new ColorThief();
-    const img = new Image();
-    const googleProxyURL = 'https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=';
-
-    img.crossOrigin = 'Anonymous';
-    img.src = googleProxyURL + encodeURIComponent(src);
-
-    img.addEventListener('load', () => {
-      this.colorPalette = colorThief.getPalette(img, count);
-    });
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<fromApp.AppState>,
+  ) {
   }
 
   ngOnInit() {
-    this.tvShowDetail$.subscribe(r => console.log(r));
+    this.store.dispatch(new tvShowsActions.TvShowFetchDetail(this.routeId));
+
+    this.store.select('tvShow').subscribe((res: TvShowsModel) => {
+      this.tvShowDetails$ = res.tvShowDetails;
+      this.loading$ = res.loading;
+    });
   }
 
 }

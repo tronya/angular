@@ -20,7 +20,7 @@ export class MoviesEffects {
   fetchMovies = this.actions$.pipe(
     ofType(moviesAction.MOVIES_FETCH_REQUEST),
     switchMap((fetchAllMovies: moviesAction.MoviesFetchItems) => {
-        return this.http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=' + environment.TheMovieDBKey)
+        return this.http.get('https://api.themoviedb.org/3/movie/now_playing')
           .pipe(
             // map((res: IMovies) => new MoviesModel(res)),
             map(res => new moviesAction.MoviesSaveItems(res)),
@@ -36,7 +36,7 @@ export class MoviesEffects {
   fetchMovieItem = this.actions$.pipe(
     ofType(moviesAction.MOVIES_DETAIL_REQUEST),
     switchMap((getMovieItem: moviesAction.MoviesGetDetailItem) => {
-        return this.http.get(`https://api.themoviedb.org/3/movie/${getMovieItem.payload}?api_key=` + environment.TheMovieDBKey)
+        return this.http.get(`https://api.themoviedb.org/3/movie/${getMovieItem.payload}`)
           .pipe(
             map(res => new moviesAction.MoviesSaveDetailItem(res)),
             catchError(errorRes => {

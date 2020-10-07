@@ -16,3 +16,8 @@ export const getImageColors = async (src: string, count: number = 5) => {
 export const generateImage = (src: string, size: string = 'w500') => {
   return `https://image.tmdb.org/t/p/${size}/${src}`;
 };
+
+export const getStoreFromLocalHost = (key: string) => {
+  const store = localStorage.getItem('state');
+  return JSON.parse(store)[key];
+};

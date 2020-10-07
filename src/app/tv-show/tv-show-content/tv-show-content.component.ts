@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TvShowsModel} from '../tv-shows.model';
 import {VideoItem} from '../../shared/video-item';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {catchError, map} from 'rxjs/operators';
-import {handleError} from '../store/tv-show.effects';
+import {Store} from '@ngrx/store';
+import * as fromApp from '../../store/app.reducer';
+import * as tvShowActions from '../store/tv-show.actions';
+import * as tvShowsActions from '../store/tv-show.actions';
 
 @Component({
   selector: 'app-tv-show-content',
@@ -12,35 +12,25 @@ import {handleError} from '../store/tv-show.effects';
   styleUrls: ['./tv-show-content.component.css']
 })
 export class TvShowContentComponent implements OnInit {
-  shows: TvShowsModel;
-  results: VideoItem[] = [];
-  loading = false;
+  public tvShowResponse?: TvShowsModel;
+  public tvShowItems?: VideoItem[];
+  public loading = false;
 
   constructor(
-    private http: HttpClient
+    private store: Store<fromApp.AppState>,
   ) {
   }
 
   public switchSource(param: string) {
-    this.getTvShows(param);
-  }
-
-  private getTvShows(payload: string = 'popular'): void {
-    this.loading = true;
-    this.http.get(`https://api.themoviedb.org/3/tv/${payload}?count=2&api_key=${environment.TheMovieDBKey}`)
-      .pipe(
-        map(res => new TvShowsModel(res)),
-        catchError(errorRes => {
-          return handleError(errorRes);
-        })
-      ).subscribe((res: TvShowsModel) => {
-      this.loading = false;
-      this.shows = res;
-      this.results = res.results;
-    });
+    this.store.dispatch(new tvShowActions.TVShowFetchItems(param));
   }
 
   ngOnInit() {
-    this.getTvShows();
+    this.store.dispatch(new tvShowsActions.TVShowFetchItems());
+
+    this.store.select('tvShow').subscribe((tvShows: TvShowsModel) => {
+      this.tvShowResponse = tvShows;
+      this.tvShowItems = tvShows.results;
+    });
   }
 }

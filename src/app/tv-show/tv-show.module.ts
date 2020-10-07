@@ -7,6 +7,7 @@ import {TvShowDetailComponent} from './tv-show-detail/tv-show-detail.component';
 import {SharedBlocksModule} from '../shared-blocks/shared-blocks.module';
 import {TvShowSliderComponent} from './tv-show-slider/tv-show-slider.component';
 import {TvShowContentComponent} from './tv-show-content/tv-show-content.component';
+import {TvShowSeasonsComponent} from './tv-show-seasons/tv-show-seasons.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {TvShowContentComponent} from './tv-show-content/tv-show-content.componen
     TvShowItemComponent,
     TvShowDetailComponent,
     TvShowSliderComponent,
-    TvShowContentComponent
+    TvShowContentComponent,
+    TvShowSeasonsComponent
   ],
   imports: [
     SharedModule,

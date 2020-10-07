@@ -44,6 +44,8 @@ export interface IProductionCompanies {
 }
 
 export interface ISeasons {
+  episode_count?: number;
+  poster_path?: string;
   air_date: string;
   episode_number: number;
   id: number;
@@ -55,7 +57,7 @@ export interface ISeasons {
   still_path: string;
   vote_average: number;
   vote_count: number;
-  nextEpisodeToAir: { air_date: string };
+  nextEpisodeToAir?: { air_date: string };
 }
 
 export class VideoItem  {
@@ -83,7 +85,7 @@ export class VideoItem  {
   popularity: number;
   posterPath: string;
   productionCompanies: IProductionCompanies[];
-  seasons: ISeasons;
+  seasons: ISeasons[];
   status: string;
   type: string;
   voteAverage: number;

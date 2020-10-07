@@ -1,4 +1,4 @@
-<div *ngIf="results.length != 0" class="tvShow-wrapper">
+<div *ngIf="tvShowItems.length != 0" class="tvShow-wrapper">
   <div class="container">
     <div class="btn-group" role="group" aria-label="Basic example">
       <button type="button" class="btn btn-secondary" (click)="switchSource('popular')">Popular</button>
@@ -10,7 +10,7 @@
     <div class="row">
       <app-tv-show-item
         class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
-        *ngFor="let show of results; let i = index"
+        *ngFor="let show of tvShowItems; let i = index"
         [show]=show>
         f
       </app-tv-show-item>

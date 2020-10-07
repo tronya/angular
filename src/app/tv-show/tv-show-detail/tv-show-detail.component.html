@@ -1,24 +1,25 @@
-<ng-container *ngIf="(tvShowDetail$ | async) as tvShowDetail;">
-  <div class="tv-show">
-    <div class="tv-show__header">
-      <div class="tv-show-banner">
-        <img src="{{tvShowDetail.getPoster}}" alt="{{tvShowDetail.name}}">
-      </div>
-      <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
-    </div>
-    <div class="tv-show__content">
-      <app-networks [networks]="tvShowDetail.networks"></app-networks>
-      <div class="row">
-        <div class="col-md-6">
-          <app-episode [episode]="tvShowDetail.lastEpisodeToAir"></app-episode>
+<ng-container *ngIf="!loading$">
+  <ng-container *ngIf="tvShowDetails$ as tvShowDetail">
+    <div class="tv-show">
+      <div class="tv-show__header">
+        <div class="tv-show-banner">
+          <img src="{{tvShowDetail.getPoster}}" alt="{{tvShowDetail.name}}">
         </div>
-        <div class="col-md-6">
-          <app-episode [episode]="tvShowDetail.nextEpisodeToAir"></app-episode>
-        </div>
+        <app-information *ngIf="tvShowDetail" [information]="tvShowDetail"></app-information>
       </div>
-      <app-seasons *ngIf="tvShowDetail" [seasons]="tvShowDetail.seasons"></app-seasons>
-      <app-production-companies [productionCompanies]="tvShowDetail.productionCompanies"></app-production-companies>
+      <div class="tv-show__content">
+        <app-networks [networks]="tvShowDetail.networks"></app-networks>
+        <div class="row">
+          <div class="col-md-6">
+            <app-episode [episode]="tvShowDetail.lastEpisodeToAir"></app-episode>
+          </div>
+          <div class="col-md-6">
+            <app-episode [episode]="tvShowDetail.nextEpisodeToAir"></app-episode>
+          </div>
+        </div>
+        <app-seasons *ngIf="tvShowDetail" [seasons]="tvShowDetail.seasons"></app-seasons>
+        <app-production-companies [productionCompanies]="tvShowDetail.productionCompanies"></app-production-companies>
+      </div>
     </div>
-  </div>
-
+  </ng-container>
 </ng-container>
