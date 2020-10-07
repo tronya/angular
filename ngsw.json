@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1602070279424,
+  "timestamp": 1602094575146,
   "index": "https://tronya.github.io/angular/index.html",
   "assetGroups": [
     {
@@ -8,16 +8,16 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "https://tronya.github.io/angular/6.0afa2104772232fd1e5a.js",
-        "https://tronya.github.io/angular/7.830e75d41088234b443b.js",
-        "https://tronya.github.io/angular/common.84d427cc0587d2d985d6.js",
+        "https://tronya.github.io/angular/1.78729e6372b1410c3fed.js",
+        "https://tronya.github.io/angular/6.b3de40a0eaaade2814d7.js",
+        "https://tronya.github.io/angular/7.1a4134acf474c4bf0c9a.js",
         "https://tronya.github.io/angular/favicon.ico",
         "https://tronya.github.io/angular/index.html",
-        "https://tronya.github.io/angular/main.ad335b3c8454ec9a99ea.js",
+        "https://tronya.github.io/angular/main.063716dbba91d9f8a55b.js",
         "https://tronya.github.io/angular/manifest.webmanifest",
         "https://tronya.github.io/angular/polyfills-es5.cee3c1b60bf118db6c8b.js",
         "https://tronya.github.io/angular/polyfills.34c5fa6f6b525648ef96.js",
-        "https://tronya.github.io/angular/runtime.56d6ec9c7e8541a83d5a.js",
+        "https://tronya.github.io/angular/runtime.ed33826ae1ef09e262a2.js",
         "https://tronya.github.io/angular/styles.493603e10986606d2dcc.css"
       ],
       "patterns": []
@@ -37,6 +37,7 @@
         "https://tronya.github.io/angular/assets/icons/icon-512x512.png",
         "https://tronya.github.io/angular/assets/icons/icon-72x72.png",
         "https://tronya.github.io/angular/assets/icons/icon-96x96.png",
+        "https://tronya.github.io/angular/assets/no-user.png",
         "https://tronya.github.io/angular/assets/placeholder.gif"
       ],
       "patterns": []
@@ -56,8 +57,9 @@
     }
   ],
   "hashTable": {
-    "https://tronya.github.io/angular/6.0afa2104772232fd1e5a.js": "5dfe8dea3fb3a824ac15772adba19ef73704f4b2",
-    "https://tronya.github.io/angular/7.830e75d41088234b443b.js": "81e5dcd199696efc8c4a097630857569d31169ff",
+    "https://tronya.github.io/angular/1.78729e6372b1410c3fed.js": "2c18655e8cb2063f7ea656990d76c0bda231650e",
+    "https://tronya.github.io/angular/6.b3de40a0eaaade2814d7.js": "8bef6138ade1028da90c0ab531248f181de56049",
+    "https://tronya.github.io/angular/7.1a4134acf474c4bf0c9a.js": "e90967d0b5b76a327afb4c3d85eb7e35f939982f",
     "https://tronya.github.io/angular/assets/border.svg": "bc4d0d6ebef1a474252e59fbd29ec1cbd968f661",
     "https://tronya.github.io/angular/assets/headings.scss": "c5f7c7466275023b2aeddf872a8a399c6ea0963c",
     "https://tronya.github.io/angular/assets/icons/icon-128x128.png": "8de9825f1d972a43df7c02bf2ce21f248230a93c",
@@ -68,15 +70,15 @@
     "https://tronya.github.io/angular/assets/icons/icon-512x512.png": "976659148dae4396cf0de3c6d1c4ca46929b854f",
     "https://tronya.github.io/angular/assets/icons/icon-72x72.png": "ac697e5e9c8d3a77e805b7c8ccaf0a7584b46aa8",
     "https://tronya.github.io/angular/assets/icons/icon-96x96.png": "12fff2410a6e385bf6701d86f25662536b927325",
+    "https://tronya.github.io/angular/assets/no-user.png": "975f323cd2c2318fdb4450dc9a5f959ab8a51bb0",
     "https://tronya.github.io/angular/assets/placeholder.gif": "1a479c3b0c3d206d1140145cac41e865285916e3",
-    "https://tronya.github.io/angular/common.84d427cc0587d2d985d6.js": "3b798f51e6b0c4134ba1929e95449422af5e41d6",
     "https://tronya.github.io/angular/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://tronya.github.io/angular/index.html": "d36566ed40757f0dd98b9dae073cf7ccc49964bf",
-    "https://tronya.github.io/angular/main.ad335b3c8454ec9a99ea.js": "dc70f8d46c151ebb38530fc7f8a21cb60824e6bb",
+    "https://tronya.github.io/angular/index.html": "1dae559bab596c5fc2332e9aa010566f9b1cadf9",
+    "https://tronya.github.io/angular/main.063716dbba91d9f8a55b.js": "bc33302ab43d54d1fae56c15995d5d7cf22d06c6",
     "https://tronya.github.io/angular/manifest.webmanifest": "bd6beb5a3caa036b20f57a539ae50de9b05f67c5",
     "https://tronya.github.io/angular/polyfills-es5.cee3c1b60bf118db6c8b.js": "ea5a8e5c1ab93cd7ab779dad31cbb6b621a3b76e",
     "https://tronya.github.io/angular/polyfills.34c5fa6f6b525648ef96.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "https://tronya.github.io/angular/runtime.56d6ec9c7e8541a83d5a.js": "a3f69f19ed0cee8d09d4a556dee43fd46d70741f",
+    "https://tronya.github.io/angular/runtime.ed33826ae1ef09e262a2.js": "d4012097a38d473b430a4eb4c1ec98bbde8f1856",
     "https://tronya.github.io/angular/styles.493603e10986606d2dcc.css": "0a6a6a1272a950f0d77b19f2355277327e0e428b"
   },
   "navigationUrls": [
