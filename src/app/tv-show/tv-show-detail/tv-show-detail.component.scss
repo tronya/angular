@@ -1,19 +1,36 @@
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins";
+
 .tv-show {
   background: black;
 
   &__header {
     display: flex;
+    flex-direction: column;
     padding: 2rem;
+
+    @include media-breakpoint-up(sm) {
+      flex-direction: row;
+    }
   }
 
   &__content {
-
+    .image {
+      width: 100%;
+    }
   }
 }
 
-.tv-show-banner{
-  min-width: 30rem;
-  img{
+.tv-show-banner {
+  min-width: auto;
+  width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    min-width: 30rem;
+  }
+
+  img {
     padding: 1rem;
     width: 100%;
     border-radius: 2rem;

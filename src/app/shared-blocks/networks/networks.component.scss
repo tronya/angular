@@ -3,11 +3,13 @@
   justify-content: space-around;
   background: radial-gradient(circle at 15% 15%, #fff, #333);
   padding: 2rem 0;
+  align-items: center;
 }
 
 .network-item {
   img {
-    height: 3rem;
+    height: auto;
+    max-width: 8rem;
   }
 
   p {
