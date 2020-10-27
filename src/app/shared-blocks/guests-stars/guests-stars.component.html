@@ -1,0 +1,18 @@
+<hr>
+<div class="guest" *ngIf="guestStars">
+  <h3>Guest Stars</h3>
+  <div class="guest__wrapper">
+    <div *ngFor="let guest of guestStars">
+      <div class="guest__item">
+        <div class="guest__image" *ngIf="guest.profile_path">
+          <img class="image" src="{{getImage(guest.profile_path)}}" alt="{{guest.name}}">
+        </div>
+        <div class="guest__content">
+          <p>{{guest.name}}</p>
+          <p><span>{{guest.character}}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>

@@ -1,0 +1,39 @@
+hr {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.guest {
+  padding: 1rem;
+
+
+  &__wrapper {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  &__image {
+    .image {
+      width: 6rem;
+      border-radius: 50%;
+      height: 6rem;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  p {
+    margin: .5rem 0;
+  }
+
+  span {
+    font-weight: 300;
+  }
+}
