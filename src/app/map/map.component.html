@@ -1,0 +1,20 @@
+<p>map works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div id="map" class="map"></div>
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <p class="white">Selected type: {{selectedType}}</p>
+        <select id="type" [(ngModel)]="selectedType" (ngModelChange)="onChange($event)">
+          <option value="Point">Point</option>
+          <option value="LineString">LineString</option>
+          <option value="Polygon">Polygon</option>
+        </select>
+      </div>
+      <p class="white" *ngIf="selectedCoordinates">{{selectedCoordinates | json}}</p>
+      <p class="white" *ngIf="modifiedLayerId">Modified layer Id: {{modifiedLayerId }}</p>
+    </div>
+  </div>
+</div>

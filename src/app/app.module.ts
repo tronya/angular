@@ -18,11 +18,13 @@ import {SharedBlocksModule} from './shared-blocks/shared-blocks.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {AppHttpInterceptor} from './app-http.interseptor';
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
