@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import 'ol/ol.css';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style';
@@ -40,18 +39,24 @@ export class MapComponent implements OnInit, OnDestroy {
       }),
     });
 
-    const select = new Select({
-      // layers: layers => console.log(layers)
-    });
-    // select.on('select', click => {
-    //   console.log(click);
-    // });
+    const select = new Select();
     this.map.addInteraction(select);
+    const selectedFeatures = select.getFeatures();
 
     const modify = new Modify({
       source: featuresSource,
+      features: select.getFeatures(),
     });
     this.map.addInteraction(modify);
+
+    modify.on(`modifyend`, (event) => {
+      selectedFeatures.clear();
+      console.log(event);
+      const changedArray = event.features.getArray().map(feature => feature.getGeometry().getCoordinates());
+      event.features.getArray().map(feature => console.log(feature));
+      const features = VectorLayerMock.getSource().getFeatures();
+      console.log(changedArray, features);
+    });
 
     this.addInteractions();
   }
@@ -65,9 +70,9 @@ export class MapComponent implements OnInit, OnDestroy {
     this.draw.on('drawstart', (drawstart) => {
       console.log(drawstart);
     });
+
     this.draw.on('drawend', (drawend) => {
-      console.log(drawend);
-      const drawEndCoordinates = drawend.feature.getGeometry().getCoordinates()[0];
+      const drawEndCoordinates = drawend.feature.getGeometry().getCoordinates();
       const layerId = `${this.selectedType}_${drawend.feature.ol_uid}`;
       drawend.feature.setId(layerId);
       this.coordinatesCallbackSave(drawEndCoordinates, layerId);
@@ -75,10 +80,11 @@ export class MapComponent implements OnInit, OnDestroy {
     this.draw.on('drawabort', (drend) => {
       console.log(drend);
     });
+
     this.map.addInteraction(this.draw);
 
-    this.snap = new Snap({source: featuresSource});
-    this.map.addInteraction(this.snap);
+    // this.snap = new Snap({source: featuresSource});
+    // this.map.addInteraction(this.snap);
   }
 
   private coordinatesCallbackSave(coordinates: [[number, number]], layerId: string): void {

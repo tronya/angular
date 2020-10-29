@@ -201,110 +201,110 @@ export const jsonResp = {
             }
           ]
         },
-        {
-          vertices: [
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.86692972355591,
-                longitude: 9.706462072940349,
-              },
-              index: 0
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.8642588301103,
-                longitude: 9.706462072940349,
-              },
-              index: 1
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.8642588301103,
-                longitude: 9.708412960903525,
-              },
-              index: 2
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.865727255726924,
-                longitude: 9.708906152086138,
-              },
-              index: 3
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.8681583429228,
-                longitude: 9.70788599065113,
-              },
-              index: 4
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.86692972355591,
-                longitude: 9.706462072940349,
-              },
-              index: 5
-            }
-          ]
-        },
-        {
-          vertices: [
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.86892972355591,
-                longitude: 9.706462072940348,
-              },
-              index: 0
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.8642588301103,
-                longitude: 9.706462072940349,
-              },
-              index: 1
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.8642588301103,
-                longitude: 9.708412960903525,
-              },
-              index: 2
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.865727255726924,
-                longitude: 9.708906152086138,
-              },
-              index: 3
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.8681583429228,
-                longitude: 9.70788599065113,
-              },
-              index: 4
-            },
-            {
-              coordinates: {
-                coordinateSystem: 'WGS84',
-                latitude: 50.86692972355591,
-                longitude: 9.706462072940349,
-              },
-              index: 5
-            }
-          ]
-        }
+        // {
+        //   vertices: [
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.86692972355591,
+        //         longitude: 9.706462072940349,
+        //       },
+        //       index: 0
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.8642588301103,
+        //         longitude: 9.706462072940349,
+        //       },
+        //       index: 1
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.8642588301103,
+        //         longitude: 9.708412960903525,
+        //       },
+        //       index: 2
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.865727255726924,
+        //         longitude: 9.708906152086138,
+        //       },
+        //       index: 3
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.8681583429228,
+        //         longitude: 9.70788599065113,
+        //       },
+        //       index: 4
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.86692972355591,
+        //         longitude: 9.706462072940349,
+        //       },
+        //       index: 5
+        //     }
+        //   ]
+        // },
+        // {
+        //   vertices: [
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.86892972355591,
+        //         longitude: 9.706462072940348,
+        //       },
+        //       index: 0
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.8642588301103,
+        //         longitude: 9.706462072940349,
+        //       },
+        //       index: 1
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.8642588301103,
+        //         longitude: 9.708412960903525,
+        //       },
+        //       index: 2
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.865727255726924,
+        //         longitude: 9.708906152086138,
+        //       },
+        //       index: 3
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.8681583429228,
+        //         longitude: 9.70788599065113,
+        //       },
+        //       index: 4
+        //     },
+        //     {
+        //       coordinates: {
+        //         coordinateSystem: 'WGS84',
+        //         latitude: 50.86692972355591,
+        //         longitude: 9.706462072940349,
+        //       },
+        //       index: 5
+        //     }
+        //   ]
+        // }
       ],
       clientID: 'cl_6277181',
       objectID: '362003'

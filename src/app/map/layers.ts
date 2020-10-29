@@ -4,6 +4,8 @@ import {Vector as VectorLayer} from 'ol/layer';
 import {GeometryTypeMock, jsonResp} from './geometry.mock';
 import {IPoint} from './map.model';
 import GeoJSON from 'ol/format/GeoJSON';
+import MultiPoint from 'ol/geom/MultiPoint';
+
 
 const coordinatesArray = (coords: IPoint[]) => {
   console.log(coords);
@@ -24,14 +26,14 @@ const coordinatesArray = (coords: IPoint[]) => {
   // console.log(type, coordinates);
   return {
     type,
-    coordinates
+    coordinates: type === GeometryTypeMock.Polygon ? [coordinates] : coordinates
   };
 };
 
 const features = jsonResp.zoneInformation[0].zoneDefinition.map((zone: any, i) => {
   return {
     type: 'Feature',
-    id: i,
+    id: `featureId_${i}`,
     geometry: coordinatesArray(zone.vertices),
   };
 });
@@ -39,14 +41,16 @@ const features = jsonResp.zoneInformation[0].zoneDefinition.map((zone: any, i) =
 export const featuresSource = new VectorSource({
   features: new GeoJSON().readFeatures({
     type: 'FeatureCollection',
-    features: [...features, {
-      type: 'Feature',
-      properties: {data: 'linestring'},
-      geometry: {
-        type: GeometryTypeMock.Polygon,
-        coordinates: [[9.711076310636283, 50.871099301288595], [9.71295687443185, 50.87108354331063], [9.713550313176395, 50.86867215358721], [9.713477474437834, 50.865775703127255], [9.711103635640622, 50.86485620834934], [9.71007492466438, 50.865848458046784], [9.71162876187432, 50.86688135997461], [9.70985699518192, 50.86769180619227], [9.711666731895686, 50.8680959815632], [9.70995623691547, 50.86863921270775], [9.711544523747445, 50.86900566951441], [9.709561197818996, 50.87005298831569], [9.711076310636283, 50.871099301288595]],
-      },
-    }]
+    features: [...features,
+      // {
+      //   type: 'Feature',
+      //   properties: {data: 'linestring'},
+      //   geometry: {
+      //     type: GeometryTypeMock.Point,
+      //     coordinates: [[9.711076310636283, 50.871099301288595], [9.71295687443185, 50.87108354331063], [9.713550313176395, 50.86867215358721], [9.713477474437834, 50.865775703127255], [9.711103635640622, 50.86485620834934], [9.71007492466438, 50.865848458046784], [9.71162876187432, 50.86688135997461], [9.70985699518192, 50.86769180619227], [9.711666731895686, 50.8680959815632], [9.70995623691547, 50.86863921270775], [9.711544523747445, 50.86900566951441], [9.709561197818996, 50.87005298831569], [9.711076310636283, 50.871099301288595]],
+      //   },
+      // }
+    ]
   }),
 });
 
@@ -54,19 +58,35 @@ export const VectorLayerMock = new VectorLayer({
   name: jsonResp.zoneInformation[0].clientID,
   id: jsonResp.zoneInformation[0].objectID,
   source: featuresSource,
-  style: new Style({
-    fill: new Fill({
-      color: 'rgba(255, 255, 255, 0.2)',
-    }),
-    stroke: new Stroke({
-      color: '#ff0066',
-      width: 4,
-    }),
-    image: new CircleStyle({
-      radius: 7,
+  style: [
+    new Style({
       fill: new Fill({
-        color: '#ffcc33',
+        color: 'rgba(255, 255, 255, 0.2)',
       }),
-    })
-  }),
+      stroke: new Stroke({
+        color: '#00cc33',
+        width: 4,
+      }),
+      image: new CircleStyle({
+        radius: 7,
+        fill: new Fill({
+          color: '#ff0033',
+        }),
+      }),
+    }),
+    // should be added only for poligon & polykine
+    // new Style({
+    //   image: new CircleStyle({
+    //     radius: 5,
+    //     fill: new Fill({
+    //       color: 'orange',
+    //     }),
+    //   }),
+    //   geometry: (feature) => {
+    //     // return the coordinates of the first ring of the polygon
+    //     const coordinates = feature.getGeometry().getCoordinates()[0];
+    //     return new MultiPoint(coordinates);
+    //   }
+    // }),
+  ]
 });
